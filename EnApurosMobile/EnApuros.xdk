@@ -63,7 +63,7 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "EnApuros",
+        "appName_": "EnApurosMobile",
         "appID_": "xdk.intel.blank.template.crosswalk",
         "appAccess_": [
           {
@@ -92,7 +92,7 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "EnApuros",
+        "appName_": "EnApurosMobile",
         "appID_": "xdk.intel.blank.template",
         "appAccess_": [
           {
@@ -120,7 +120,7 @@
           "ios-configuration": "adhoc"
         },
         "isActive_": true,
-        "appName_": "EnApuros",
+        "appName_": "EnApurosMobile",
         "appID_": "xdk.intel.blank.template",
         "appAccess_": [
           {
@@ -147,7 +147,7 @@
           "windows-publisher-id": ""
         },
         "isActive_": true,
-        "appName_": "EnApuros",
+        "appName_": "EnApurosMobile",
         "appID_": "xdk.intel.blank.template",
         "appAccess_": [
           {
@@ -171,7 +171,7 @@
         "name_": "WebApp",
         "preferences_": {},
         "isActive_": false,
-        "appName_": "EnApuros",
+        "appName_": "EnApurosMobile",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -191,7 +191,7 @@
         "name_": "Chrome",
         "preferences_": {},
         "isActive_": false,
-        "appName_": "EnApuros",
+        "appName_": "EnApurosMobile",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -211,7 +211,7 @@
         "name_": "Firefox",
         "preferences_": {},
         "isActive_": false,
-        "appName_": "EnApuros",
+        "appName_": "EnApurosMobile",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -231,7 +231,7 @@
         "name_": "Facebook",
         "preferences_": {},
         "isActive_": false,
-        "appName_": "EnApuros",
+        "appName_": "EnApurosMobile",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
