@@ -1,0 +1,4 @@
+<preference name="debuggable" value="true" />
+<!-- 'value' = number of milliseconds to display the splash screen in a Cordova build. -->
+<!-- This preference only affects Cordova builds for Crosswalk and Android. -->
+<!-- <preference name="SplashScreenDelay" value="2000" /> -->
