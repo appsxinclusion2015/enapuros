@@ -39,6 +39,8 @@ define(function () {
 
         this._$notificationsPage.on("tap", "[data-notification-action]", this._onNotificationSelected.bind(this));
 
+        $.mobile.toolbar.prototype.options.backBtnText = "VOLVER";
+
         this._renderOptions(statusList, "status", this._$statusList);
     };
 
@@ -83,7 +85,6 @@ define(function () {
 
         for (i = 0; i < count; i++) {
             item = options[i];
-            //$item = $("<button data-" + dataKey + "='" + item.id + "' class='ui-btn ui-corner-all'>" + item.name + "</button>");
             $wrapper = $("<div data-" + dataKey + "='" + item.id + "' class='list-option'></div>");
             $image = $("<img src='" + item.image + "' draggable='false'></img>");
             $text = $("<h3>" + item.name + "</h3>");
@@ -98,7 +99,7 @@ define(function () {
      * @private
      */
     MainView.prototype._onStatusSelected = function (event) {
-        var $target = $(event.target),
+        var $target = $(event.currentTarget),
             key = $target.data("status");
 
         this._controller.statusSelected(key);
@@ -108,7 +109,7 @@ define(function () {
      * @private
      */
     MainView.prototype._onLocationSelected = function (event) {
-        var $target = $(event.target),
+        var $target = $(event.currentTarget),
             key = $target.data("location");
 
         this._controller.locationSelected(key);
@@ -118,7 +119,7 @@ define(function () {
      * @private
      */
     MainView.prototype._onScenarioSelected = function (event) {
-        var $target = $(event.target),
+        var $target = $(event.currentTarget),
             key = $target.data("scenario");
 
         this._controller.scenarioSelected(key);
@@ -128,14 +129,14 @@ define(function () {
      * @private
      */
     MainView.prototype._onContactSelected = function (event) {
-        var $target = $(event.target),
+        var $target = $(event.currentTarget),
             key = $target.data("contact");
 
         this._controller.contactSelected(key);
     };
 
     MainView.prototype._onNotificationSelected = function (event) {
-        var $target = $(event.target),
+        var $target = $(event.currentTarget),
             key = $target.data("notification-action");
 
         this._controller.notificationSelected(key);

@@ -40,10 +40,18 @@ input, textarea  {
     user-select: text;
 }
 
+.app-header {
+    text-align: center;
+    text-transform: uppercase;
+    background-color: floralwhite !important;
+    color: forestgreen !important;
+    border: 0;
+}
+
 .app-title {
     text-align: center;
     text-transform: uppercase;
-    padding: 0 10px 15px 10px;
+    padding: 5px 10px 10px 10px;
 }
 
 .app-list {
@@ -73,10 +81,34 @@ input, textarea  {
     height: 175px;
 }
 
+.app-fun {
+    width: 100%;
+    min-height: 450px;
+    position: relative;
+}
+
+.app-fun > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.btn-app-notification {
+    text-transform: uppercase;
+}
+
+.btn-app-fun {
+    margin-top: 50px;
+    text-transform: uppercase;
+}
+
 @media (min-width: 480px), (min-width: 600px) {
 
     .app-list .list-option {
-        flex-basis: 50%;
+        flex-basis: 40%;
     }
 }
 

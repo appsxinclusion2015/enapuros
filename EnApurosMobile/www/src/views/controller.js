@@ -1,5 +1,5 @@
 /*jslint browser:true, devel:true, white:true, vars:true */
-/*global $:false, intel:false, app:false, dev:false, requirejs, define */
+/*global $:false, intel:false, app:false, dev:false, requirejs, define, sms */
 /*cordova:false, device:false */
 
 define([
@@ -15,24 +15,6 @@ define([
 
         this._selection = {};
     }
-    
-    var onSuccess = function(position) {
-    alert('Latitude: '          + position.coords.latitude          + '\n' +
-          'Longitude: '         + position.coords.longitude         + '\n' +
-          'Altitude: '          + position.coords.altitude          + '\n' +
-          'Accuracy: '          + position.coords.accuracy          + '\n' +
-          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-          'Heading: '           + position.coords.heading           + '\n' +
-          'Speed: '             + position.coords.speed             + '\n' +
-          'Timestamp: '         + position.timestamp                + '\n');
-};
-
-// onError Callback receives a PositionError object
-//
-function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-}
 
     Controller.prototype.initialize = function () {
         console.log("initialize");
@@ -92,32 +74,35 @@ function onError(error) {
     Controller.prototype.notificationSelected = function (action) {
         switch (action) {
             case "email":
+                // TODO complete
                 break;
-                case "location":
-                    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            case "location":
+                // TODO navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 break;
             case "sms":
                 var text = "[EnApuros] Mamá: estoy en el colegio, me lastimé.\n";
 
                 function sendSms(message) {
                     var options = {
-                    replaceLineBreaks: false,
+                        replaceLineBreaks: false,
                         android: {
                             intent: 'INTENT'
                         }
                     };
 
-                    var success = function () { console.log('Message sent successfully'); };
-                    var error = function (e) { console.log('Message Failed:' + e); };
-
-                    sms.send("+5493513715088", message, options, success, error);
+                    // TODO add phone number for demo
+                    sms.send("+123", message, options, function () {
+                        console.log('Message sent successfully');
+                    }, function (error) {
+                        console.log('Message failed', error);
+                    });
                 }
 
                 sendSms(text);
 
                 break;
             case "call":
-                var number = "+5493513715088";
+                var number = "+123"; // TODO add phone number for demo
 
                 navigator.callphone.call(function () {}, function (error) {
                     console.log(error.call);
@@ -125,8 +110,6 @@ function onError(error) {
 
                 break;
         }
-
-        // Notification.openAudio();
     };
 
     return Controller;
