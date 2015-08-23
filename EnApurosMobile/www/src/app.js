@@ -2,7 +2,7 @@
 /*global $:false, intel:false, app:false, dev:false, requirejs */
 /*cordova:false, device:false */
 
-requirejs([], function() {
+requirejs(["./notifications"], function(Notification) {
     "use strict";
 
     function hideSplashScreen() {

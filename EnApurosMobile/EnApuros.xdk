@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://appcenter.html5tools-software.intel.com/api/v2.0/redirect/projectrenderers/release-2015-ww32/jsapp/templates-blank-cordova-project/sample.zip",
       "projectGuid": "25aa0c2b-6e5f-4e29-9057-cb626284d474",
-      "lastModifiedDate": 1440278851723,
+      "lastModifiedDate": 1440286151890,
       "creationDate": 1440278848783
     },
     "XDK-app-designer": "false",
@@ -32,7 +32,8 @@
         "checksum": "87180a02",
         "gitref": "",
         "name": "Device",
-        "description": "Cordova Device Plugin"
+        "description": "Cordova Device Plugin",
+        "cordovaVersion": ">=3.0.0"
       },
       {
         "id": "org.apache.cordova.splashscreen",
@@ -49,7 +50,27 @@
         "checksum": "ae76b446",
         "gitref": "",
         "name": "Splashscreen",
-        "description": "Cordova Splashscreen Plugin"
+        "description": "Cordova Splashscreen Plugin",
+        "cordovaVersion": ">=3.0.0"
+      },
+      {
+        "id": "com.sixtooth.emailclientplugin",
+        "name": "emailclientplugin",
+        "version": "0.1.0",
+        "originType": "cordova.io",
+        "origin": "com.sixtooth.emailclientplugin",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/com.sixtooth.emailclientplugin",
+        "selectedState": "Included",
+        "checksum": "c5250a22",
+        "dependsOn": [],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "permissions": {},
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
       }
     ],
     "buildConfigurations": {
