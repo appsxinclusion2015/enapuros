@@ -29,9 +29,9 @@ define(["exports"], function (exports) {
         emailclient.sendEmail({
         host: 'smtp.gmail.com',
         port: '993',
-        email: 'emiliat09@gmail.com',
-        password: 'emt07SA3648*',
-        from: 'm.emilia.torino@gmail.com',
+        email: '',
+        password: '',
+        from: '',
         fromName: 'Emi',
         subject: 'Hola',
         body: 'Estoy en apuros'
