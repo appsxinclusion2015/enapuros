@@ -10,10 +10,10 @@ define(["exports"], function (exports) {
     /**
      * @constructor
      */
-    function Contact(id, name, photo, phone) {
+    function Contact(id, name, image, phone) {
         this._id = id;
         this._name = name;
-        this._photo = photo;
+        this._image = image;
         this._phone = phone;
     }
 
@@ -43,11 +43,11 @@ define(["exports"], function (exports) {
     /**
      * @constructor
      */
-    function Status(id, name, type, icon) {
+    function Status(id, name, type, image) {
         this._id = id;
         this._name = name;
         this._type = type;
-        this._icon = icon;
+        this._image = image;
     }
 
     Status.Categories = {
@@ -72,9 +72,9 @@ define(["exports"], function (exports) {
                 return this._type;
             }
         },
-        "icon": {
+        "image": {
             get: function () {
-                return this._icon;
+                return this._image;
             }
         }
     });
@@ -82,10 +82,10 @@ define(["exports"], function (exports) {
     /**
      * @constructor
      */
-    function Location(id, name, icon) {
+    function Location(id, name, image) {
         this._id = id;
         this._name = name;
-        this._icon = icon;
+        this._image = image;
     }
 
     Object.defineProperties(Location.prototype, {
@@ -99,9 +99,9 @@ define(["exports"], function (exports) {
                 return this._name;
             }
         },
-        "icon": {
+        "image": {
             get: function () {
-                return this._icon;
+                return this._image;
             }
         }
     });
@@ -109,11 +109,11 @@ define(["exports"], function (exports) {
     /**
      * @constructor
      */
-    function Scenario(id, name, statusType, icon) {
+    function Scenario(id, name, statusType, image) {
         this._id = id;
         this._name = name;
         this._statusType = statusType;
-        this._icon = icon;
+        this._image = image;
     }
 
     Object.defineProperties(Scenario.prototype, {
@@ -132,9 +132,9 @@ define(["exports"], function (exports) {
                 return this._statusType;
             }
         },
-        "icon": {
+        "image": {
             get: function () {
-                return this._icon;
+                return this._image;
             }
         }
     });
@@ -180,13 +180,13 @@ define(["exports"], function (exports) {
     }
 
     function _init() {
-        statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, null)); // TODO use icons url
-        statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, null));
+        statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/happy.png"));
+        statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, "assets/sad.png"));
 
-        locations.push(new Location("casa", "Casa", null));
-        locations.push(new Location("escuela", "Escuela", null));
-        locations.push(new Location("calle", "Calle", null));
-        locations.push(new Location("parque", "Parque", null));
+        locations.push(new Location("casa", "Casa", "assets/house.png"));
+        locations.push(new Location("escuela", "Escuela", "assets/school.png"));
+        locations.push(new Location("calle", "Calle", "assets/road.png"));
+        locations.push(new Location("parque", "Parque", "assets/park.png"));
 
         scenarios.push(new Scenario(1, "Me lastime", Status.Categories.NEGATIVE, null));
         scenarios.push(new Scenario(2, "Estoy encerrado", Status.Categories.NEGATIVE, null));

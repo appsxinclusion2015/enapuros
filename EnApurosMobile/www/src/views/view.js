@@ -74,14 +74,21 @@ define(function () {
     MainView.prototype._renderOptions = function (options, dataKey, $list) {
         var i,
             item,
-            $item,
+            $wrapper,
+            $image,
+            $text,
             count = options.length;
 
         for (i = 0; i < count; i++) {
             item = options[i];
-            $item = $("<button data-" + dataKey + "='" + item.id + "' class='ui-btn ui-corner-all'>" + item.name + "</button>");
+            //$item = $("<button data-" + dataKey + "='" + item.id + "' class='ui-btn ui-corner-all'>" + item.name + "</button>");
+            $wrapper = $("<div data-" + dataKey + "='" + item.id + "' class='list-option'></div>");
+            $image = $("<img src='" + item.image + "' draggable='false'></img>");
+            $text = $("<p>" + item.name + "</p>");
 
-            $list.append($item);
+            $wrapper.append($image);
+            $wrapper.append($text);
+            $list.append($wrapper);
         }
     };
 

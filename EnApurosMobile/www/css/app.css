@@ -53,3 +53,14 @@ input, textarea  {
 .align-center {
     text-align: center;
 }
+
+.app-list {
+    height: 100%;
+}
+
+.app-list > .list-option {
+}
+
+.app-list > .list-option > img {
+    height: 200px;
+}
