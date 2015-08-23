@@ -5,10 +5,10 @@ Tiene como objetivo principal mejorar la comunicación, la expresión, pedido de
 
 ### Equipo
 
-Natalia Elizabeth Nissen
-María Cecilia Pintos
-Silvana Ghigo
-María Emilia Torino
-Albertina Durante
-Alexis Ferreyra
+* Natalia Elizabeth Nissen
+* María Cecilia Pintos
+* Silvana Ghigo
+* María Emilia Torino
+* Albertina Durante
+* Alexis Ferreyra
 
