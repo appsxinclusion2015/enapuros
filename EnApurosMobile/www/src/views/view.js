@@ -79,6 +79,8 @@ define(function () {
             $text,
             count = options.length;
 
+        $list.empty();
+
         for (i = 0; i < count; i++) {
             item = options[i];
             //$item = $("<button data-" + dataKey + "='" + item.id + "' class='ui-btn ui-corner-all'>" + item.name + "</button>");

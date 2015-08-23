@@ -2,22 +2,14 @@
     width: 100vw;
     min-zoom: 100%;
     zoom: 100%;
+    user-zoom: fixed;
 }
 
 @viewport {
     width: 100vw;
     min-zoom: 100%;
     zoom: 100%;
-}
-
-@-ms-viewport {
     user-zoom: fixed;
-    min-zoom: 100%;
-}
-
-@viewport {
-    user-zoom: fixed;
-    min-zoom: 100%;
 }
 
 /* Recommended for Windows 8 Phone */
@@ -50,17 +42,43 @@ input, textarea  {
     user-select: text;
 }
 
-.align-center {
+.app-title {
     text-align: center;
+    text-transform: uppercase;
+    padding: 0 10px 15px 10px;
 }
 
 .app-list {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
 }
 
-.app-list > .list-option {
+.app-list .list-option {
+    flex-basis: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.app-list > .list-option > img {
+.app-list .list-option > img {
     height: 200px;
+}
+
+@media (min-width: 480px), (min-width: 600px) {
+
+    .app-list .list-option {
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 800px) {
+
+    .app-list .list-option {
+        flex-basis: 33.333%;
+    }
 }
