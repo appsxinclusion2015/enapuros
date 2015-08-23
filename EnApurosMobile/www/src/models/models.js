@@ -3,7 +3,7 @@
 define(["exports"], function (exports) {
 
     var contacts = [],
-        status = [],
+        statusList = [],
         locations = [],
         scenarios = [];
 
@@ -144,13 +144,13 @@ define(["exports"], function (exports) {
     }
 
     function getStatus() {
-        return status;
+        return statusList;
     }
 
     function getStatusById(id) {
         var status = null;
 
-        status.some(function (item) {
+        statusList.some(function (item) {
             var isEqual = (item.id === id);
 
             if (isEqual) {
@@ -180,8 +180,8 @@ define(["exports"], function (exports) {
     }
 
     function _init() {
-        status.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, null)); // TODO use icons url
-        status.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, null));
+        statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, null)); // TODO use icons url
+        statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, null));
 
         locations.push(new Location("casa", "Casa", null));
         locations.push(new Location("escuela", "Escuela", null));
@@ -202,6 +202,7 @@ define(["exports"], function (exports) {
     exports.getContacts          = getContacts;
     exports.getStatus            = getStatus;
     exports.getLocations         = getLocations;
+    exports.getStatusById        = getStatusById;
     exports.getScenariosByStatus = getScenariosByStatus;
     exports.StatusCategory       = Status.Categories;
 });

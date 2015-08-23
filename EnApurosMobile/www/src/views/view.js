@@ -71,7 +71,7 @@ define(function () {
 
         for (i = 0; i < count; i++) {
             item = options[i];
-            $item = $("<button data-status='" + item.id + "' class='ui-btn ui-corner-all'>" + item.name + "</button>");
+            $item = $("<button data-" + dataKey + "='" + item.id + "' class='ui-btn ui-corner-all'>" + item.name + "</button>");
 
             $list.append($item);
         }
