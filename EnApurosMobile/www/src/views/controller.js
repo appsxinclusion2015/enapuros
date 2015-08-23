@@ -83,10 +83,23 @@ define([
 });
                 break;
             case "sms":
-                alert('hola');
+                var messageInfo = {
+            phoneNumber: "+5493513715088",
+            textMessage: "This is a test message"
+        };
+
+        sms.sendMessage(messageInfo, function (message) {
+            console.log("success: " + message);
+        }, function (error) {
+            console.log("error", error);
+        });
                 break;
             case "call":
-                alert('hola');
+                var number = "+5493513715088";
+
+        navigator.callphone.call(function () {}, function (error) {
+            console.log(error.call);
+        }, number);
                 break;
         }
 
