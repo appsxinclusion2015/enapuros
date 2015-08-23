@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://appcenter.html5tools-software.intel.com/api/v2.0/redirect/projectrenderers/release-2015-ww32/jsapp/templates-blank-cordova-project/sample.zip",
       "projectGuid": "25aa0c2b-6e5f-4e29-9057-cb626284d474",
-      "lastModifiedDate": 1440278851723,
+      "lastModifiedDate": 1440293236579,
       "creationDate": 1440278848783
     },
     "XDK-app-designer": "false",
@@ -32,7 +32,8 @@
         "checksum": "87180a02",
         "gitref": "",
         "name": "Device",
-        "description": "Cordova Device Plugin"
+        "description": "Cordova Device Plugin",
+        "cordovaVersion": ">=3.0.0"
       },
       {
         "id": "org.apache.cordova.splashscreen",
@@ -49,7 +50,103 @@
         "checksum": "ae76b446",
         "gitref": "",
         "name": "Splashscreen",
-        "description": "Cordova Splashscreen Plugin"
+        "description": "Cordova Splashscreen Plugin",
+        "cordovaVersion": ">=3.0.0"
+      },
+      {
+        "id": "com.sixtooth.emailclientplugin",
+        "name": "emailclientplugin",
+        "version": "0.1.0",
+        "originType": "cordova.io",
+        "origin": "com.sixtooth.emailclientplugin",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/com.sixtooth.emailclientplugin",
+        "selectedState": "Included",
+        "checksum": "c5250a22",
+        "dependsOn": [],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "permissions": {},
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
+      },
+      {
+        "id": "org.apache.cordova.file",
+        "name": "File",
+        "version": "1.3.2",
+        "originType": "cordova.io",
+        "origin": "org.apache.cordova.file",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/org.apache.cordova.file",
+        "selectedState": "Included",
+        "checksum": "143330fa",
+        "dependsOn": [],
+        "topLevel": false,
+        "cordovaVersion": ">=3.0.0",
+        "permissions": {
+          "android:name": [
+            "android.permission.WRITE_EXTERNAL_STORAGE"
+          ]
+        },
+        "description": "Cordova File Plugin",
+        "data": {},
+        "dependedBy": [
+          "org.apache.cordova.media"
+        ]
+      },
+      {
+        "id": "org.apache.cordova.media",
+        "name": "Media",
+        "version": "0.2.15",
+        "originType": "cordova.io",
+        "origin": "org.apache.cordova.media",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/org.apache.cordova.media",
+        "selectedState": "Included",
+        "checksum": "e06f1af9",
+        "dependsOn": [
+          "org.apache.cordova.file"
+        ],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "permissions": {
+          "android:name": [
+            "android.permission.RECORD_AUDIO",
+            "android.permission.MODIFY_AUDIO_SETTINGS",
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+            "android.permission.READ_PHONE_STATE"
+          ]
+        },
+        "description": "Cordova Media Plugin",
+        "data": {},
+        "dependedBy": []
+      },
+      {
+        "id": "com.jsmobile.plugins.sms",
+        "name": "sms",
+        "version": "0.0.1",
+        "originType": "cordova.io",
+        "origin": "com.jsmobile.plugins.sms",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/com.jsmobile.plugins.sms",
+        "selectedState": "Included",
+        "checksum": "e5531a20",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {
+          "android:name": [
+            "android.permission.SEND_SMS"
+          ]
+        },
+        "description": "A plugin for sending sms messages",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
       }
     ],
     "buildConfigurations": {

@@ -4,13 +4,33 @@
 
 requirejs([
     "./models/models",
-    "./views/controller"
-], function(Models, Controller) {
-    "use strict";
+    "./views/controller",
+    "./notifications"
+], function(Models, Controller, Notification) {
 
-    console.log("app init");
+    "use strict";
 
     var controller = new Controller(Models);
 
     controller.initialize();
+
+    function initEvents() {
+        $("#btnEmail").on("click", function () {
+            Notification.sendEmail();
+        });
+
+        $("#btnSMS").on("click", function () {
+            Notification.sendSMS();
+        });
+
+        $("#btnAudio").on("click", function () {
+            Notification.openAudio();
+        });
+
+        $("#btnCall").on("click", function () {
+            Notification.call();
+        });
+    }
+
+    initEvents();
 });
