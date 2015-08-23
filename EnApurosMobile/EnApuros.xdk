@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://appcenter.html5tools-software.intel.com/api/v2.0/redirect/projectrenderers/release-2015-ww32/jsapp/templates-blank-cordova-project/sample.zip",
       "projectGuid": "25aa0c2b-6e5f-4e29-9057-cb626284d474",
-      "lastModifiedDate": 1440312702415,
+      "lastModifiedDate": 1440332860544,
       "creationDate": 1440278848783
     },
     "XDK-app-designer": "false",
@@ -144,6 +144,32 @@
           ]
         },
         "description": "A plugin for sending sms messages",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
+      },
+      {
+        "id": "de.appplant.cordova.plugin.email-composer",
+        "name": "EmailComposer",
+        "version": "0.8.3dev",
+        "originType": "repo",
+        "origin": "https://github.com/katzer/cordova-plugin-email-composer",
+        "gitref": "",
+        "subdir": ".",
+        "paramvals": {},
+        "sourceLocation": "plugins/de.appplant.cordova.plugin.email-composer",
+        "selectedState": "Included",
+        "checksum": "31faf1ac",
+        "dependsOn": [],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "author": "Sebastián Katzer",
+        "permissions": {
+          "android:name": [
+            "android.permission.GET_ACCOUNTS"
+          ]
+        },
+        "description": "\n        Provides access to the standard interface that manages\n        the editing and sending an email message\n    ",
         "data": {},
         "dependedBy": [],
         "custom": "true"
