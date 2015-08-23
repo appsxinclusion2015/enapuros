@@ -30,8 +30,6 @@ body {
     -webkit-tap-highlight-color: transparent;
     -ms-touch-action: pan-y;
     -ms-content-zooming: none;
-    background: white;
-    color: black;
 }
 
 /* allow copy-paste */
@@ -81,4 +79,9 @@ input, textarea  {
     .app-list .list-option {
         flex-basis: 33.333%;
     }
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    background-color: floralwhite !important;
+    color: forestgreen !important;
 }

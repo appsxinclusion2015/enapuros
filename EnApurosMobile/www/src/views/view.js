@@ -86,7 +86,7 @@ define(function () {
             //$item = $("<button data-" + dataKey + "='" + item.id + "' class='ui-btn ui-corner-all'>" + item.name + "</button>");
             $wrapper = $("<div data-" + dataKey + "='" + item.id + "' class='list-option'></div>");
             $image = $("<img src='" + item.image + "' draggable='false'></img>");
-            $text = $("<p>" + item.name + "</p>");
+            $text = $("<h3>" + item.name + "</h3>");
 
             $wrapper.append($image);
             $wrapper.append($text);
