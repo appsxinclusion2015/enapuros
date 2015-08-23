@@ -31,21 +31,9 @@ define(["exports"], function (exports) {
     }
 
     function sendEmail(e) {
-        emailclient.sendEmail({
-            host: 'smtp.gmail.com',
-            port: '993',
-            email: '',
-            password: '',
-            from: '',
-            fromName: 'Emi',
-            subject: 'Hola',
-            body: 'Estoy en apuros'
-        }, function (data) {
-            console.log('data', JSON.parse(data));
-        }, function () {
-            console.log('failed');
-        });
-    }
+        alert('hola');
+        window.plugins.emailComposer.showEmailComposer("subject","body", "recipient@something.com", "cc@something.com", "bcc@something.com",false);
+    });
 
     exports.call      = call;
     exports.sendSMS   = sendSms;

@@ -3,8 +3,7 @@
 /*cordova:false, device:false */
 
 define([
-    "./view",
-    "../notifications"
+    "./view"
 ], function (MainView, Notification) {
 
     /**
@@ -75,7 +74,13 @@ define([
     Controller.prototype.notificationSelected = function (action) {
         switch (action) {
             case "email":
-                Notification.sendEmail();
+                cordova.plugins.email.open({
+    to:      'max@mustermann.de',
+    cc:      'erika@mustermann.de',
+    bcc:     ['john@doe.com', 'jane@doe.com'],
+    subject: 'Greetings',
+    body:    'How are you? Nice greetings from Leipzig'
+});
                 break;
             case "sms":
                 Notification.sendSMS();

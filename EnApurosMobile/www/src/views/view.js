@@ -134,7 +134,7 @@ define(function () {
         this._controller.contactSelected(key);
     };
 
-    MainView.prototype._onNotificationSelected = function () {
+    MainView.prototype._onNotificationSelected = function (event) {
         var $target = $(event.target),
             key = $target.data("notification-action");
 
