@@ -4,7 +4,7 @@
 
 define([
     "./view",
-    "../notifications"
+    "./../notifications"
 ], function (MainView, Notification) {
 
     /**
