@@ -61,6 +61,12 @@ input, textarea  {
     margin-right: auto;
     text-align: center;
     text-transform: uppercase;
+    border: 1px transparent solid;
+}
+
+.app-list .list-option:active,
+.app-list .list-option:hover {
+    border: 1px forestgreen solid;
 }
 
 .app-list .list-option > img {

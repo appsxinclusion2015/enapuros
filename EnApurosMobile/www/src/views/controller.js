@@ -74,32 +74,34 @@ define([
     Controller.prototype.notificationSelected = function (action) {
         switch (action) {
             case "email":
-                cordova.plugins.email.open({
-    to:      'max@mustermann.de',
-    cc:      'erika@mustermann.de',
-    bcc:     ['john@doe.com', 'jane@doe.com'],
-    subject: 'Greetings',
-    body:    'How are you? Nice greetings from Leipzig'
-});
                 break;
             case "sms":
-                var messageInfo = {
-            phoneNumber: "+5493513715088",
-            textMessage: "This is a test message"
-        };
+                var text = "[EnApuros] Mamá: estoy en el colegio, me lastimé.\n";
 
-        sms.sendMessage(messageInfo, function (message) {
-            console.log("success: " + message);
-        }, function (error) {
-            console.log("error", error);
-        });
+                function sendSms(message) {
+                    var options = {
+                    replaceLineBreaks: false,
+                        android: {
+                            intent: 'INTENT'
+                        }
+                    };
+
+                    var success = function () { console.log('Message sent successfully'); };
+                    var error = function (e) { console.log('Message Failed:' + e); };
+
+                    sms.send("+5493513715088", message, options, success, error);
+                }
+
+                sendSms(text);
+
                 break;
             case "call":
                 var number = "+5493513715088";
 
-        navigator.callphone.call(function () {}, function (error) {
-            console.log(error.call);
-        }, number);
+                navigator.callphone.call(function () {}, function (error) {
+                    console.log(error.call);
+                }, number);
+
                 break;
         }
 

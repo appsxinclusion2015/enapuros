@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://appcenter.html5tools-software.intel.com/api/v2.0/redirect/projectrenderers/release-2015-ww32/jsapp/templates-blank-cordova-project/sample.zip",
       "projectGuid": "25aa0c2b-6e5f-4e29-9057-cb626284d474",
-      "lastModifiedDate": 1440332860544,
+      "lastModifiedDate": 1440337998778,
       "creationDate": 1440278848783
     },
     "XDK-app-designer": "false",
@@ -52,25 +52,6 @@
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
         "cordovaVersion": ">=3.0.0"
-      },
-      {
-        "id": "com.sixtooth.emailclientplugin",
-        "name": "emailclientplugin",
-        "version": "0.1.0",
-        "originType": "cordova.io",
-        "origin": "com.sixtooth.emailclientplugin",
-        "gitref": "",
-        "paramvals": {},
-        "sourceLocation": "plugins/com.sixtooth.emailclientplugin",
-        "selectedState": "Included",
-        "checksum": "c5250a22",
-        "dependsOn": [],
-        "topLevel": true,
-        "cordovaVersion": ">=3.0.0",
-        "permissions": {},
-        "data": {},
-        "dependedBy": [],
-        "custom": "true"
       },
       {
         "id": "org.apache.cordova.file",
@@ -126,50 +107,27 @@
         "dependedBy": []
       },
       {
-        "id": "com.jsmobile.plugins.sms",
-        "name": "sms",
-        "version": "0.0.1",
-        "originType": "cordova.io",
-        "origin": "com.jsmobile.plugins.sms",
-        "gitref": "",
-        "paramvals": {},
-        "sourceLocation": "plugins/com.jsmobile.plugins.sms",
-        "selectedState": "Included",
-        "checksum": "e5531a20",
-        "dependsOn": [],
-        "topLevel": true,
-        "permissions": {
-          "android:name": [
-            "android.permission.SEND_SMS"
-          ]
-        },
-        "description": "A plugin for sending sms messages",
-        "data": {},
-        "dependedBy": [],
-        "custom": "true"
-      },
-      {
-        "id": "de.appplant.cordova.plugin.email-composer",
-        "name": "EmailComposer",
-        "version": "0.8.3dev",
+        "id": "com.cordova.plugins.sms",
+        "name": "Cordova SMS Plugin",
+        "version": "0.1.4",
         "originType": "repo",
-        "origin": "https://github.com/katzer/cordova-plugin-email-composer",
+        "origin": "https://github.com/cordova-sms/cordova-sms-plugin.git",
         "gitref": "",
         "subdir": ".",
         "paramvals": {},
-        "sourceLocation": "plugins/de.appplant.cordova.plugin.email-composer",
+        "sourceLocation": "plugins/com.cordova.plugins.sms",
         "selectedState": "Included",
-        "checksum": "31faf1ac",
+        "checksum": "c70f660",
         "dependsOn": [],
         "topLevel": true,
         "cordovaVersion": ">=3.0.0",
-        "author": "Sebastián Katzer",
         "permissions": {
           "android:name": [
-            "android.permission.GET_ACCOUNTS"
+            "android.permission.SEND_SMS",
+            "android.permission.READ_PHONE_STATE"
           ]
         },
-        "description": "\n        Provides access to the standard interface that manages\n        the editing and sending an email message\n    ",
+        "description": "Cross-platform plugin for Cordova / PhoneGap to to easily send SMS. Available for Android and iOS.",
         "data": {},
         "dependedBy": [],
         "custom": "true"
