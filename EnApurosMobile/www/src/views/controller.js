@@ -2,7 +2,10 @@
 /*global $:false, intel:false, app:false, dev:false, requirejs, define */
 /*cordova:false, device:false */
 
-define(["./view"], function (MainView) {
+define([
+    "./view",
+    "../notifications"
+], function (MainView, Notification) {
 
     /**
      * @constructor
@@ -55,10 +58,30 @@ define(["./view"], function (MainView) {
 
     Controller.prototype.scenarioSelected = function (scenarioId) {
         console.log("scenarioSelected", scenarioId);
+
+        this._selection.scenario = scenarioId;
+
+        this._view.showContacts(this._models.getContacts());
     };
 
     Controller.prototype.contactSelected = function (contactId) {
         console.log("contactSelected", contactId);
+    };
+
+    Controller.prototype.contactActionSelected = function (action) {
+        switch (action) {
+            case "email":
+                Notification.sendEmail();
+                break;
+            case "sms":
+                Notification.sendSMS();
+                break;
+            case "call":
+                Notification.call();
+                break;
+        }
+
+        // Notification.openAudio();
     };
 
     return Controller;
