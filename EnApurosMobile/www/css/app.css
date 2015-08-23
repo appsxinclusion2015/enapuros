@@ -64,7 +64,7 @@ input, textarea  {
 }
 
 .app-list .list-option > img {
-    height: 200px;
+    height: 175px;
 }
 
 @media (min-width: 480px), (min-width: 600px) {
@@ -78,6 +78,10 @@ input, textarea  {
 
     .app-list .list-option {
         flex-basis: 33.333%;
+    }
+
+    .app-list .list-option > img {
+        height: 200px;
     }
 }
 
