@@ -13,6 +13,7 @@ define(function () {
         this._$locationsPage = null;
         this._$scenariosPage = null;
         this._$contactsPage = null;
+        this._$notificationsPage = null;
         this._$statusList = null;
         this._$locationsList = null;
         this._$scenariosList = null;
@@ -24,6 +25,7 @@ define(function () {
         this._$locationsPage = $("#location-page");
         this._$scenariosPage = $("#scenarios-page");
         this._$contactsPage = $("#contacts-page");
+        this._$notificationsPage = $("#notification-page");
 
         this._$statusList = this._$statusPage.find("#status-list");
         this._$locationsList = this._$locationsPage.find("#locations-list");
@@ -34,6 +36,8 @@ define(function () {
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
         this._$scenariosList.on("tap", "[data-scenario]", this._onScenarioSelected.bind(this));
         this._$contactsList.on("tap", "[data-contact]", this._onContactSelected.bind(this));
+
+        this._$notificationsPage.on("tap", "[data-notification-action]", this._onNotificationSelected.bind(this));
 
         this._renderOptions(statusList, "status", this._$statusList);
     };
@@ -58,6 +62,10 @@ define(function () {
         $.mobile.changePage(this._$contactsPage);
 
         this._renderOptions(contacts, "contact", this._$contactsList);
+    };
+
+    MainView.prototype.showNotifications = function () {
+        $.mobile.changePage(this._$notificationsPage);
     };
 
     /**
@@ -115,6 +123,13 @@ define(function () {
             key = $target.data("contact");
 
         this._controller.contactSelected(key);
+    };
+
+    MainView.prototype._onNotificationSelected = function () {
+        var $target = $(event.target),
+            key = $target.data("notification-action");
+
+        this._controller.notificationSelected(key);
     };
 
     return MainView;

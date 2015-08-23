@@ -66,9 +66,13 @@ define([
 
     Controller.prototype.contactSelected = function (contactId) {
         console.log("contactSelected", contactId);
+
+        this._selection.contact = contactId;
+
+        this._view.showNotifications();
     };
 
-    Controller.prototype.contactActionSelected = function (action) {
+    Controller.prototype.notificationSelected = function (action) {
         switch (action) {
             case "email":
                 Notification.sendEmail();
