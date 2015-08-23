@@ -1,16 +1,30 @@
 define(["exports"], function (exports) {
 
     function call(e){
-       alert('hola');
+        var number = "+5493513715088"
+        navigator.callphone.call(function () {}, function (error) {              
+           showErrorDialog(errors.call); log(error); 
+       }, number );
     }
 
     function sendSms(e){
-       alert('hola');
+       var messageInfo = {
+        phoneNumber: "+5493513715088",
+        textMessage: "This is a test message"
+       };
+
+        sms.sendMessage(messageInfo, function(message) {
+            console.log("success: " + message);
+        }, function(error) {
+            console.log("code: " + error.code + ", message: " + error.message);
+        });
     }
 
     function openAudio(e){
         var my_media = new Media('cdvfile://localhost/temporary/recording.mp3')
+        my_media.play();
     }
+    
     function sendEmail(e){
         emailclient.sendEmail({
         host: 'smtp.gmail.com',

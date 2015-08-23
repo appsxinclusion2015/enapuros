@@ -18,8 +18,20 @@ requirejs(["./notifications"], function(Notification) {
     }
 
     function initEvents() {
-        $("#btnTest").on("click", function () {
-            alert("Hi!");
+        $("#btnEmail").on("click", function () {
+            Notification.sendEmail();
+        });
+        
+        $("#btnSMS").on("click", function () {
+            Notification.sendSMS();
+        });
+        
+        $("#btnAudio").on("click", function () {
+            Notification.openAudio();
+        });
+        
+        $("#btnCall").on("click", function () {
+            Notification.call();
         });
 
         hideSplashScreen();
