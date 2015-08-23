@@ -4,7 +4,7 @@
 
 define([
     "./view"
-], function (MainView, Notification) {
+], function (MainView) {
 
     /**
      * @constructor
@@ -83,10 +83,10 @@ define([
 });
                 break;
             case "sms":
-                Notification.sendSMS();
+                alert('hola');
                 break;
             case "call":
-                Notification.call();
+                alert('hola');
                 break;
         }
 

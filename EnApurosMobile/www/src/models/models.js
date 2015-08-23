@@ -10,11 +10,11 @@ define(["exports"], function (exports) {
     /**
      * @constructor
      */
-    function Contact(id, name, image, phone) {
+    function Contact(id, name, phone, image) {
         this._id = id;
         this._name = name;
-        this._image = image;
         this._phone = phone;
+        this._image = image;
     }
 
     Object.defineProperties(Contact.prototype, {
@@ -28,9 +28,9 @@ define(["exports"], function (exports) {
                 return this._name;
             }
         },
-        "photo": {
+        "image": {
             get: function () {
-                return this._photo;
+                return this._image;
             }
         },
         "phone": {
@@ -188,13 +188,13 @@ define(["exports"], function (exports) {
         locations.push(new Location("calle", "Calle", "assets/road.png"));
         locations.push(new Location("parque", "Parque", "assets/park.png"));
 
-        scenarios.push(new Scenario(1, "Me lastime", Status.Categories.NEGATIVE, null));
-        scenarios.push(new Scenario(2, "Estoy encerrado", Status.Categories.NEGATIVE, null));
-        scenarios.push(new Scenario(3, "Me perdi", Status.Categories.NEGATIVE, null));
+        scenarios.push(new Scenario(1, "Me lastimé", Status.Categories.NEGATIVE, "assets/hurt.png"));
+        scenarios.push(new Scenario(2, "Estoy encerrado", Status.Categories.NEGATIVE, "assets/encerrado.png"));
+        scenarios.push(new Scenario(3, "Me perdí", Status.Categories.NEGATIVE, "assets/perdido.png"));
 
-        contacts.push(new Contact(1, "Ana", "test", 123));
-        contacts.push(new Contact(2, "Roberto", "test", 123));
-        contacts.push(new Contact(3, "Susanita", "test", 123));
+        contacts.push(new Contact(1, "Mamá", 123, "assets/mom.jpg"));
+        contacts.push(new Contact(2, "Papá", 123, "assets/dad.jpg"));
+        contacts.push(new Contact(3, "Maestra", 123, "assets/teacher.png"));
     }
 
     _init();
