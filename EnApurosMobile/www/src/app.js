@@ -2,17 +2,11 @@
 /*global $:false, intel:false, app:false, dev:false, requirejs */
 /*cordova:false, device:false */
 
-app.LOG = app.LOG || false;
-
 requirejs([], function() {
     "use strict";
 
     function hideSplashScreen() {
-        // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
-        // Do the following if you disabled App Framework autolaunch (in index.html, for example)
-        // $.ui.launch() ;
-
-        if (navigator.splashscreen && navigator.splashscreen.hide) { // Cordova API detected
+        if (navigator.splashscreen && navigator.splashscreen.hide) {
             navigator.splashscreen.hide();
         }
 
@@ -24,16 +18,12 @@ requirejs([], function() {
     }
 
     function initEvents() {
-        var el, evt;
-
-        if (navigator.msPointerEnabled || !('ontouchend' in window)) {
-            evt = "click";
-        } else {
-            evt = "touchend";
-        }
+        $("#btnTest").on("click", function () {
+            alert("Hi!");
+        });
 
         hideSplashScreen();
     }
 
-    document.addEventListener("app.Ready", app.initEvents, false);
+    initEvents();
 });

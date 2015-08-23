@@ -7,15 +7,57 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
 
     <!-- styles -->
+    <link rel="stylesheet" href="thirdparty/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="thirdparty/jquery.mobile.theme-1.4.5.min.css">
     <link rel="stylesheet" href="css/app.css">
 
+    <script src="thirdparty/jquery-2.1.4.min.js"></script>
+    <script src="thirdparty/jquery.mobile-1.4.5.min.js"></script>
     <script src="cordova.js"></script>
     <script data-main="src/app" src="thirdparty/requirejs.min.js"></script>
 </head>
 <body>
-    <h1 class="align-center">En Apuros</h1>
-    <p class="align-center">
-        Hello World
-    </p>
+
+<!-- main status page -->
+<div data-role="page" id="status">
+
+    <div data-role="header">
+        <h1>Estado</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+        <h2>Estado</h2>
+
+        <p><a href="#location" class="ui-btn ui-shadow ui-corner-all">Ubicacion</a></p>
+    </div>
+</div>
+
+<!-- location page -->
+<div data-role="page" id="location" data-theme="a">
+
+    <div data-role="header">
+        <h1>Ubicacion</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+        <h2>Ubicacion</h2>
+
+        <p><a href="" id="btnTest" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Alert</a></p>
+    </div>
+</div>
+
+<!-- "whats up" page -->
+<div data-role="page" id="description" data-theme="a">
+
+    <div data-role="header">
+        <h1>Que es lo que sucede?</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+        <h2>Que es lo que sucede?</h2>
+
+    </div>
+</div>
+
 </body>
 </html>
