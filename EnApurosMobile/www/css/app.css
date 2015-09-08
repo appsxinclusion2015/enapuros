@@ -30,6 +30,11 @@ body {
     -webkit-tap-highlight-color: transparent;
     -ms-touch-action: pan-y;
     -ms-content-zooming: none;
+    background: url(../assets/background.png);
+    background-repeat:repeat-y;
+    background-position:center center;
+    background-attachment:scroll;
+    background-size:100% 100%;
 }
 
 /* allow copy-paste */
@@ -123,7 +128,9 @@ input, textarea  {
     }
 }
 
-.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
-    background-color: floralwhite !important;
-    color: forestgreen !important;
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: transparent;
 }
