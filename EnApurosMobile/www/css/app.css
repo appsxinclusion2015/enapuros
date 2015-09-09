@@ -144,3 +144,11 @@ input, textarea  {
     right: 0;
     bottom: 0;
 }
+
+.settings {
+    position: absolute;
+    margin: auto;
+    right: 20px;
+    bottom: 20px;
+}
+
