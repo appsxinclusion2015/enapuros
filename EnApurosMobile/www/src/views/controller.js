@@ -18,9 +18,8 @@ define([
 
     Controller.prototype.initialize = function () {
         console.log("initialize");
-        var status = this._models.getStatus();
 
-        this._view.initialize(status);
+        this._view.initialize();
     };
 
     Controller.prototype.hideSplashScreen = function () {
@@ -33,6 +32,10 @@ define([
                 intel.xdk.device.hideSplashScreen();
             }
         }
+    };
+    
+    Controller.prototype.navigateHome = function () {
+        this._view.showStatus(this._models.getStatus());
     };
 
     Controller.prototype.statusSelected = function (statusId) {

@@ -3,6 +3,7 @@
 define(["exports"], function (exports) {
 
     var contacts = [],
+        splashList = [],
         statusList = [],
         locations = [],
         scenarios = [];
@@ -105,6 +106,21 @@ define(["exports"], function (exports) {
             }
         }
     });
+    
+    /**
+     * @constructor
+     */
+    function Splash(image) {
+        this._image = image;
+    }
+
+    Object.defineProperties(Splash.prototype, {
+        "image": {
+            get: function () {
+                return this._image;
+            }
+        }
+    });
 
     /**
      * @constructor
@@ -146,6 +162,10 @@ define(["exports"], function (exports) {
     function getStatus() {
         return statusList;
     }
+    
+    function getSplash(){
+        return splashList;
+    }
 
     function getStatusById(id) {
         var status = null;
@@ -180,6 +200,8 @@ define(["exports"], function (exports) {
     }
 
     function _init() {
+        splashList.push(new Splash("assets/btn_comenzar.png"));
+        
         statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/happy.png"));
         statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, "assets/sad.png"));
 
@@ -201,6 +223,7 @@ define(["exports"], function (exports) {
 
     exports.getContacts          = getContacts;
     exports.getStatus            = getStatus;
+    exports.getSplash            = getSplash;
     exports.getLocations         = getLocations;
     exports.getStatusById        = getStatusById;
     exports.getScenariosByStatus = getScenariosByStatus;

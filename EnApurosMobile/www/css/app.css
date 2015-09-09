@@ -105,6 +105,7 @@ input, textarea  {
     text-transform: uppercase;
 }
 
+
 .btn-app-fun {
     margin-top: 50px;
     text-transform: uppercase;
@@ -133,4 +134,13 @@ input, textarea  {
 }
 .ui-content{
     background: transparent;
+}
+
+.go-to-home {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }

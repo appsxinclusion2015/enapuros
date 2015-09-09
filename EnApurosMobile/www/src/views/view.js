@@ -9,29 +9,34 @@ define(function () {
      */
     function MainView(controller) {
         this._controller = controller;
+        this._$splashPage = null;
         this._$statusPage = null;
         this._$locationsPage = null;
         this._$scenariosPage = null;
         this._$contactsPage = null;
         this._$notificationsPage = null;
+        this._$btnGoToHome = null;
         this._$statusList = null;
         this._$locationsList = null;
         this._$scenariosList = null;
         this._$contactsList = null;
     }
 
-    MainView.prototype.initialize = function (statusList) {
+    MainView.prototype.initialize = function () {
+        this._$splashPage = $("#splash-page");
         this._$statusPage = $("#status-page");
         this._$locationsPage = $("#location-page");
         this._$scenariosPage = $("#scenarios-page");
         this._$contactsPage = $("#contacts-page");
         this._$notificationsPage = $("#notification-page");
 
+        this._$btnGoToHome = this._$splashPage.find("#btn-init");
         this._$statusList = this._$statusPage.find("#status-list");
         this._$locationsList = this._$locationsPage.find("#locations-list");
         this._$scenariosList = this._$scenariosPage.find("#scenarios-list");
         this._$contactsList = this._$contactsPage.find("#contacts-list");
 
+        this._$btnGoToHome.on("tap", this._onNavigateToHome.bind(this));
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
         this._$scenariosList.on("tap", "[data-scenario]", this._onScenarioSelected.bind(this));
@@ -40,12 +45,16 @@ define(function () {
         this._$notificationsPage.on("tap", "[data-notification-action]", this._onNotificationSelected.bind(this));
 
         $.mobile.toolbar.prototype.options.backBtnText = "VOLVER";
-
-        this._renderOptions(statusList, "status", this._$statusList);
     };
 
-    MainView.prototype.showStatus = function () {
+    MainView.prototype.showSplash = function () {
+        $.mobile.changePage(this._$splashPage);
+    };
+    
+    MainView.prototype.showStatus = function (status) {
         $.mobile.changePage(this._$statusPage);
+        
+        this._renderOptions(status, "status", this._$statusList);
     };
 
     MainView.prototype.showLocation = function (locations) {
@@ -93,6 +102,13 @@ define(function () {
             $wrapper.append($text);
             $list.append($wrapper);
         }
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onNavigateToHome = function () {
+        this._controller.navigateHome();
     };
 
     /**
