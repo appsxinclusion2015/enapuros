@@ -18,11 +18,15 @@ define(function () {
         this._$scenariosPage = null;
         this._$contactsPage = null;
         this._$notificationsPage = null;
+        this._$updateContactsPage = null;
+        
         this._$btnGoToHome = null;
         this._$btnGear = null;
         this._$btnUnlock = null;
         this._$btnUpdatePwd = null;
         this._$btnNewPwd = null;
+        this._$btnUpdateContacts = null;
+        
         this._$statusList = null;
         this._$locationsList = null;
         this._$scenariosList = null;
@@ -39,6 +43,7 @@ define(function () {
         this._$scenariosPage = $("#scenarios-page");
         this._$contactsPage = $("#contacts-page");
         this._$notificationsPage = $("#notification-page");
+        this._$updateContactsPage = $("#update-contacts-page");
 
         this._$btnGoToHome = this._$splashPage.find("#btn-init");
         this._$btnGear = this._$splashPage.find("#btn-settings");
@@ -47,6 +52,9 @@ define(function () {
 
         this._$btnUpdatePwd = this._$updatePwdPage.find("#btn-update-pwd");
         this._$btnNewPwd = this._$newPwdPage.find("#btn-new-pwd");
+        
+        this._$btnUpdateContacts = this._$updateContactsPage.find("#btn-update-contacts");
+
         
         this._$statusList = this._$statusPage.find("#status-list");
         this._$locationsList = this._$locationsPage.find("#locations-list");
@@ -58,6 +66,7 @@ define(function () {
         this._$btnUnlock.on("tap", this._onSettingsPasswordProvided.bind(this));
         this._$btnUpdatePwd.on("tap", this._onSettingsPasswordUpdated.bind(this));
         this._$btnNewPwd.on("tap", this._onSettingsPasswordCreated.bind(this));
+        this._$btnUpdateContacts.on("tap", this._onUpdateContacts.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
@@ -117,6 +126,10 @@ define(function () {
 
     MainView.prototype.showNotifications = function () {
         $.mobile.changePage(this._$notificationsPage);
+    };
+    
+    MainView.prototype.showUpdateContacts = function () {
+        $.mobile.changePage(this._$updateContactsPage);
     };
     
     MainView.prototype.needToSetupSettingsPwd = function(){
@@ -237,6 +250,9 @@ define(function () {
 
         this._controller.notificationSelected(key);
     };
-
+    
+    MainView.prototype._onUpdateContacts = function (event) {
+        this.showSplash();
+    }
     return MainView;
 });

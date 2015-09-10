@@ -44,7 +44,7 @@ define([
         console.log("password", password);
         var currentPwd = localStorage.getItem("password");
         if(currentPwd == password){
-            this._view.showSplash();
+            this._view.showUpdateContacts();
         }
         else{
             alert("Invalid Pwd");
