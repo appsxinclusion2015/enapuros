@@ -12,7 +12,6 @@ define([
     function Controller(models) {
         this._models = models;
         this._view = new MainView(this);
-
         this._selection = {};
     }
 

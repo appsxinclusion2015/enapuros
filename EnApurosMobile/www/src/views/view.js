@@ -67,6 +67,7 @@ define(function () {
         this._$notificationsPage.on("tap", "[data-notification-action]", this._onNotificationSelected.bind(this));
         
         $.mobile.toolbar.prototype.options.backBtnText = "VOLVER";
+        
     };
 
     MainView.prototype.showSplash = function () {
@@ -120,9 +121,8 @@ define(function () {
     
     MainView.prototype.needToSetupSettingsPwd = function(){
         return (localStorage.getItem("password") === null);
-    }
+    };
     
-
     /**
      * @private
      */
