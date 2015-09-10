@@ -200,21 +200,21 @@ define(["exports"], function (exports) {
     }
 
     function _init() {        
-        statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/happy.png"));
-        statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, "assets/sad.png"));
+        statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/icon-feliz.png"));
+        statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, "assets/icon-triste.png"));
 
-        locations.push(new Location("casa", "Casa", "assets/house.png"));
-        locations.push(new Location("escuela", "Escuela", "assets/school.png"));
-        locations.push(new Location("calle", "Calle", "assets/road.png"));
-        locations.push(new Location("parque", "Parque", "assets/park.png"));
+        locations.push(new Location("casa", "Casa", "assets/icon-casa.png"));
+        locations.push(new Location("escuela", "Escuela", "assets/icon-escuela.png"));
+        locations.push(new Location("calle", "Calle", "assets/icon-calle.png"));
+        locations.push(new Location("parque", "Parque", "assets/icon-parque.png"));
 
-        scenarios.push(new Scenario(1, "Me lastimé", Status.Categories.NEGATIVE, "assets/hurt.png"));
-        scenarios.push(new Scenario(2, "Estoy encerrado", Status.Categories.NEGATIVE, "assets/encerrado.png"));
-        scenarios.push(new Scenario(3, "Me perdí", Status.Categories.NEGATIVE, "assets/perdido.png"));
+        scenarios.push(new Scenario(1, "Me lastimé", Status.Categories.NEGATIVE, "assets/icon-lastimado.png"));
+        scenarios.push(new Scenario(2, "Estoy encerrado", Status.Categories.NEGATIVE, "assets/icon-encerrado.png"));
+        scenarios.push(new Scenario(3, "Me perdí", Status.Categories.NEGATIVE, "assets/icon-perdido.png"));
 
-        contacts.push(new Contact(1, "Mamá", 123, "assets/mom.jpg"));
-        contacts.push(new Contact(2, "Papá", 123, "assets/dad.jpg"));
-        contacts.push(new Contact(3, "Maestra", 123, "assets/teacher.png"));
+        contacts.push(new Contact(1, "Mamá", 123, "assets/icon-mama.jpg"));
+        contacts.push(new Contact(2, "Papá", 123, "assets/icon-papa.jpg"));
+        contacts.push(new Contact(3, "Maestra", 123, "assets/icon-maestro.png"));
     }
 
     _init();
