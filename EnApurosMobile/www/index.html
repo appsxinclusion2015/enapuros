@@ -22,7 +22,7 @@
 
     <div role="main" class="ui-content">
         <img id="btn-init" src="assets/btn_comenzar.png" class="go-to-home"/>
-        <img id="btn-settings" src="assets/gear.png" class="settings"/>
+        <img id="btn-settings" src="assets/icono-config.png" class="settings"/>
         
     </div>
 </div>
@@ -34,6 +34,31 @@
         <label for="basic" >Contraseña</label>
         <input type="password" name="name" id="password" value="" data-mini="true">
         <img id="btn-unlock" src="assets/btn_comenzar.png"/>        
+    </div>
+</div>
+
+<!-- update settings pwd page -->
+<div data-role="page" id="update-settings-pwd-page">
+
+    <div role="main" class="ui-content absolute-center">
+        <label for="basic" id="current-pwd-label">Contraseña actual</label>
+        <input type="password" name="name" id="current-password" value="" data-mini="true">
+        <label for="basic" >Nueva contraseña</label>
+        <input type="password" name="name" id="new-password" value="" data-mini="true">
+        <label for="basic" >Confirme nueva contraseña</label>
+        <input type="password" name="name" id="confirmed-new-password" value="" data-mini="true">
+        <img id="btn-update-pwd" src="assets/btn_comenzar.png"/>        
+    </div>
+</div>
+    
+<!-- First time settings pwd page -->
+<div data-role="page" id="new-settings-pwd-page">
+    <div role="main" class="ui-content absolute-center">
+        <label for="basic" >Nueva contraseña</label>
+        <input type="password" name="name" id="new-password" value="" data-mini="true">
+        <label for="basic" >Confirme nueva contraseña</label>
+        <input type="password" name="name" id="confirmed-new-password" value="" data-mini="true">
+        <img id="btn-new-pwd" src="assets/btn_comenzar.png"/>        
     </div>
 </div>
     

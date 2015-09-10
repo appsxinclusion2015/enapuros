@@ -18,7 +18,6 @@ define([
 
     Controller.prototype.initialize = function () {
         console.log("initialize");
-        localStorage.setItem("password", "0000");
         this._view.initialize();
     };
 
@@ -52,6 +51,31 @@ define([
             alert("Invalid Pwd");
         }
     };
+    
+    Controller.prototype.updatePassword = function (currentPassword, newPassword, confirmedNewPassword) {
+        var currentStoredPwd = localStorage.getItem("password");
+        if(currentStoredPwd == currentPassword){
+            this.passwordsMatch(newPassword, confirmedNewPassword);
+        }
+        else{
+            alert("La contraseña actual es incorrecta");
+        }
+    };
+    
+    Controller.prototype.newPassword = function (newPassword, confirmedNewPassword) {
+        this.passwordsMatch(newPassword, confirmedNewPassword);
+    };
+    
+    
+    Controller.prototype.passwordsMatch = function(newPwd, confirmedNewPwd){
+        if(newPwd!= "" && newPwd === confirmedNewPwd){
+            localStorage.setItem("password", newPwd);
+            this._view.showUnlockSettings();
+        }
+        else{
+            alert("La nueva contraseña no corresponde con la confirmacion");
+        }
+    }
 
     Controller.prototype.statusSelected = function (statusId) {
         console.log("statusSelected", statusId);

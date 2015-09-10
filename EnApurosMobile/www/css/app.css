@@ -30,7 +30,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     -ms-touch-action: pan-y;
     -ms-content-zooming: none;
-    background: url(../assets/background.png);
+    background: url(../assets/background-home-sin-nenes.png);
     background-repeat:repeat-y;
     background-position:center center;
     background-attachment:scroll;
@@ -139,7 +139,7 @@ input, textarea  {
 .absolute-center {
     /* Must manually set width/height */
     width:250px;
-    height:250px;
+    height:300px;
 
     /* The magic centering code */
     margin:auto;

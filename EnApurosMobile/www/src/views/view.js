@@ -11,6 +11,8 @@ define(function () {
         this._controller = controller;
         this._$splashPage = null;
         this._$unlockSettingsPage = null;
+        this._$updatePwdPage = null;
+        this._$newPwdPage = null;
         this._$statusPage = null;
         this._$locationsPage = null;
         this._$scenariosPage = null;
@@ -19,6 +21,8 @@ define(function () {
         this._$btnGoToHome = null;
         this._$btnGear = null;
         this._$btnUnlock = null;
+        this._$btnUpdatePwd = null;
+        this._$btnNewPwd = null;
         this._$statusList = null;
         this._$locationsList = null;
         this._$scenariosList = null;
@@ -28,6 +32,8 @@ define(function () {
     MainView.prototype.initialize = function () {
         this._$splashPage = $("#splash-page");
         this._$unlockSettingsPage= $("#unlock-settings-page");
+        this._$updatePwdPage= $("#update-settings-pwd-page");
+        this._$newPwdPage= $("#new-settings-pwd-page");
         this._$statusPage = $("#status-page");
         this._$locationsPage = $("#location-page");
         this._$scenariosPage = $("#scenarios-page");
@@ -38,6 +44,9 @@ define(function () {
         this._$btnGear = this._$splashPage.find("#btn-settings");
         
         this._$btnUnlock = this._$unlockSettingsPage.find("#btn-unlock");
+
+        this._$btnUpdatePwd = this._$updatePwdPage.find("#btn-update-pwd");
+        this._$btnNewPwd = this._$newPwdPage.find("#btn-new-pwd");
         
         this._$statusList = this._$statusPage.find("#status-list");
         this._$locationsList = this._$locationsPage.find("#locations-list");
@@ -47,6 +56,8 @@ define(function () {
         this._$btnGoToHome.on("tap", this._onNavigateToHome.bind(this));
         this._$btnGear.on("tap", this._onNavigateToUnlockSettings.bind(this));
         this._$btnUnlock.on("tap", this._onSettingsPasswordProvided.bind(this));
+        this._$btnUpdatePwd.on("tap", this._onSettingsPasswordUpdated.bind(this));
+        this._$btnNewPwd.on("tap", this._onSettingsPasswordCreated.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
@@ -54,7 +65,7 @@ define(function () {
         this._$contactsList.on("tap", "[data-contact]", this._onContactSelected.bind(this));
 
         this._$notificationsPage.on("tap", "[data-notification-action]", this._onNotificationSelected.bind(this));
-
+        
         $.mobile.toolbar.prototype.options.backBtnText = "VOLVER";
     };
 
@@ -64,6 +75,14 @@ define(function () {
     
     MainView.prototype.showUnlockSettings = function () {
         $.mobile.changePage(this._$unlockSettingsPage);
+    };
+    
+    MainView.prototype.showUpdatePassword = function () {
+        $.mobile.changePage(this._$updatePwdPage);
+    };
+    
+    MainView.prototype.showNewPassword = function () {
+        $.mobile.changePage(this._$newPwdPage);
     };
     
     MainView.prototype.showSettings = function () {
@@ -98,6 +117,11 @@ define(function () {
     MainView.prototype.showNotifications = function () {
         $.mobile.changePage(this._$notificationsPage);
     };
+    
+    MainView.prototype.needToSetupSettingsPwd = function(){
+        return (localStorage.getItem("password") === null);
+    }
+    
 
     /**
      * @private
@@ -135,14 +159,36 @@ define(function () {
      * @private
      */
     MainView.prototype._onNavigateToUnlockSettings = function () {
-        this._controller.navigateToUnlockSettings();
+        if(this.needToSetupSettingsPwd()){
+            this.showNewPassword();
+        }else{
+            this._$unlockSettingsPage.find("#password").val("");
+            this._controller.navigateToUnlockSettings();
+        }
     };
     
     /**
      * @private
      */
     MainView.prototype._onSettingsPasswordProvided = function (event) {
-                    this._controller.verifySettingsPassword(this._$unlockSettingsPage.find("#password").val());
+        this._controller.verifySettingsPassword(this._$unlockSettingsPage.find("#password").val());
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onSettingsPasswordUpdated = function (event) {
+        this._controller.updatePassword(this._$updatePwdPage.find("#current-password").val(), 
+                                       this._$updatePwdPage.find("#new-password").val(),
+                                       this._$updatePwdPage.find("#confirmed-new-password").val());
+    };
+    
+     /**
+     * @private
+     */
+    MainView.prototype._onSettingsPasswordCreated = function (event) {
+        this._controller.newPassword(this._$newPwdPage.find("#new-password").val(),
+                                     this._$newPwdPage.find("#confirmed-new-password").val());
     };
 
     /**
