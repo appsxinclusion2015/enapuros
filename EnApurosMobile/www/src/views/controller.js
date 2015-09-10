@@ -41,6 +41,12 @@ define([
     Controller.prototype.navigateToUnlockSettings = function () {
         this._view.showUnlockSettings();
     };
+    
+    Controller.prototype.verifySettingsPassword = function (password) {
+        console.log("password", password);
+        //TODO: Verify pwd!!
+        this._view.showSplash();
+    };
 
     Controller.prototype.statusSelected = function (statusId) {
         console.log("statusSelected", statusId);

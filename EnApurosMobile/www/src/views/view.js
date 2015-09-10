@@ -18,6 +18,7 @@ define(function () {
         this._$notificationsPage = null;
         this._$btnGoToHome = null;
         this._$btnGear = null;
+        this._$btnUnlock = null;
         this._$statusList = null;
         this._$locationsList = null;
         this._$scenariosList = null;
@@ -36,6 +37,8 @@ define(function () {
         this._$btnGoToHome = this._$splashPage.find("#btn-init");
         this._$btnGear = this._$splashPage.find("#btn-settings");
         
+        this._$btnUnlock = this._$unlockSettingsPage.find("#btn-unlock");
+        
         this._$statusList = this._$statusPage.find("#status-list");
         this._$locationsList = this._$locationsPage.find("#locations-list");
         this._$scenariosList = this._$scenariosPage.find("#scenarios-list");
@@ -43,6 +46,7 @@ define(function () {
 
         this._$btnGoToHome.on("tap", this._onNavigateToHome.bind(this));
         this._$btnGear.on("tap", this._onNavigateToUnlockSettings.bind(this));
+        this._$btnUnlock.on("tap", "[data-password]", this._onSettingsPasswordProvided.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
@@ -60,6 +64,11 @@ define(function () {
     
     MainView.prototype.showUnlockSettings = function () {
         $.mobile.changePage(this._$unlockSettingsPage);
+    };
+    
+    MainView.prototype.showSettings = function () {
+        //TODO: Go to settings page
+        $.mobile.changePage(this._$splashPage);
     };
     
     MainView.prototype.showStatus = function (status) {
@@ -127,6 +136,15 @@ define(function () {
      */
     MainView.prototype._onNavigateToUnlockSettings = function () {
         this._controller.navigateToUnlockSettings();
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onSettingsPasswordProvided = function (event) {
+        var $target = $(event.currentTarget),
+            key = $target.data("password");
+        this._controller.verifySettingsPassword(key);
     };
 
     /**
