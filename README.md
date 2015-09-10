@@ -11,4 +11,5 @@ Tiene como objetivo principal mejorar la comunicación, la expresión, pedido de
 * María Emilia Torino
 * Albertina Durante
 * Alexis Ferreyra
+* Sebastian Piai
 
