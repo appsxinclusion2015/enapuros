@@ -37,6 +37,10 @@ define([
     Controller.prototype.navigateHome = function () {
         this._view.showStatus(this._models.getStatus());
     };
+    
+    Controller.prototype.navigateToUnlockSettings = function () {
+        this._view.showUnlockSettings();
+    };
 
     Controller.prototype.statusSelected = function (statusId) {
         console.log("statusSelected", statusId);
