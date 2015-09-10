@@ -46,7 +46,7 @@ define(function () {
 
         this._$btnGoToHome.on("tap", this._onNavigateToHome.bind(this));
         this._$btnGear.on("tap", this._onNavigateToUnlockSettings.bind(this));
-        this._$btnUnlock.on("tap", "[data-password]", this._onSettingsPasswordProvided.bind(this));
+        this._$btnUnlock.on("tap", this._onSettingsPasswordProvided.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
@@ -142,9 +142,7 @@ define(function () {
      * @private
      */
     MainView.prototype._onSettingsPasswordProvided = function (event) {
-        var $target = $(event.currentTarget),
-            key = $target.data("password");
-        this._controller.verifySettingsPassword(key);
+                    this._controller.verifySettingsPassword(this._$unlockSettingsPage.find("#password").val());
     };
 
     /**

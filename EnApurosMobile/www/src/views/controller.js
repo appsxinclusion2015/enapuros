@@ -18,7 +18,7 @@ define([
 
     Controller.prototype.initialize = function () {
         console.log("initialize");
-
+        localStorage.setItem("password", "0000");
         this._view.initialize();
     };
 
@@ -44,8 +44,13 @@ define([
     
     Controller.prototype.verifySettingsPassword = function (password) {
         console.log("password", password);
-        //TODO: Verify pwd!!
-        this._view.showSplash();
+        var currentPwd = localStorage.getItem("password");
+        if(currentPwd == password){
+            this._view.showSplash();
+        }
+        else{
+            alert("Invalid Pwd");
+        }
     };
 
     Controller.prototype.statusSelected = function (statusId) {

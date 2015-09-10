@@ -199,9 +199,7 @@ define(["exports"], function (exports) {
         return scenarios;
     }
 
-    function _init() {
-        splashList.push(new Splash("assets/btn_comenzar.png"));
-        
+    function _init() {        
         statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/happy.png"));
         statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, "assets/sad.png"));
 
