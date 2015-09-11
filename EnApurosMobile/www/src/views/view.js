@@ -66,7 +66,7 @@ define(function () {
         this._$btnGoToUpdateContacts =  this._$settingsMainPage.find("#go-to-edit-contacts");
         this._$btnGoToUpdateLocations = this._$settingsMainPage.find("#go-to-edit-locations");
         this._$btnGoToUpdateSituations = this._$settingsMainPage.find("#go-to-edit-situations");
-        this._$btnGoToUpdatePassword = this._$settingsMainPage.find("#go-to-edit-password");
+        this._$btnGoToUpdatePassword = this._$settingsMainPage.find("#go-to-edit-contrasena");
         
         this._$btnUpdateContacts = this._$updateContactsPage.find("#btn-update-contacts");
 
@@ -86,8 +86,8 @@ define(function () {
         this._$btnUpdateContacts.on("tap", this._onUpdateContacts.bind(this));
         
         this._$btnGoToUpdateContacts.on("tap", this._onGoToUpdateContacts.bind(this));
-        this._$btnGoToUpdateLocations.on("tap", this._onGoToUpdateLocations.bind(this));
-        this._$btnGoToUpdateSituations.on("tap", this._onGoToUpdateSituations.bind(this));
+        this._$btnGoToUpdateLocations.on("tap", this._onGoToUpdateContacts.bind(this));
+        this._$btnGoToUpdateSituations.on("tap", this._onGoToUpdateContacts.bind(this));
         this._$btnGoToUpdatePassword.on("tap", this._onGoToUpdatePassword.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
@@ -312,6 +312,7 @@ define(function () {
     };
     
     MainView.prototype._onGoToUpdateContacts = function () {
+        alert("pwd!!");
         this._controller.goToUpdateContactsSelected();
     };
     
