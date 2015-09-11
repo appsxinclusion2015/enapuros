@@ -31,6 +31,8 @@ define(function () {
         this._$locationsList = null;
         this._$scenariosList = null;
         this._$contactsList = null;
+        
+        this._$contactsToUpdateList = null;
     }
 
     MainView.prototype.initialize = function () {
@@ -60,6 +62,8 @@ define(function () {
         this._$locationsList = this._$locationsPage.find("#locations-list");
         this._$scenariosList = this._$scenariosPage.find("#scenarios-list");
         this._$contactsList = this._$contactsPage.find("#contacts-list");
+
+        this._$contactsToUpdateList = this._$updateContactsPage.find("#contacts-list-to-update");
 
         this._$btnGoToHome.on("tap", this._onNavigateToHome.bind(this));
         this._$btnGear.on("tap", this._onNavigateToUnlockSettings.bind(this));
@@ -128,8 +132,9 @@ define(function () {
         $.mobile.changePage(this._$notificationsPage);
     };
     
-    MainView.prototype.showUpdateContacts = function () {
+    MainView.prototype.showUpdateContacts = function (contacts) {
         $.mobile.changePage(this._$updateContactsPage);
+        this._renderUpdateList(contacts, "contact", this._$contactsToUpdateList);
     };
     
     MainView.prototype.needToSetupSettingsPwd = function(){
@@ -157,6 +162,39 @@ define(function () {
 
             $wrapper.append($image);
             $wrapper.append($text);
+            $list.append($wrapper);
+        }
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._renderUpdateList = function(options, dataKey, $list){
+        var i,
+            item,
+            $wrapper,
+            $imageDiv,
+            $img,
+            $dataDiv,
+            $data,
+            $text,
+            count = options.length;
+
+        $list.empty();
+        for (i = 0; i < count; i++) {
+            item = options[i];
+            $wrapper = $("<div data-" + dataKey + "='" + item.id + "' class='list-option'></div>");
+            //Img section
+            $imageDiv = $("<div style='width: 20%; float:left'></div>");
+            $img = $("<p>hola</p>");
+            $imageDiv.append($img);
+            
+            //Data section
+            $dataDiv = $("<div style='width: 80%;float:right'></div>");
+            $data = $("<p>chau</p>");
+            $dataDiv.append($data);
+            $wrapper.append($imageDiv);
+            $wrapper.append($dataDiv);
             $list.append($wrapper);
         }
     };
@@ -252,7 +290,10 @@ define(function () {
     };
     
     MainView.prototype._onUpdateContacts = function (event) {
-        this.showSplash();
-    }
+        var $target = $(event.currentTarget),
+            key = $target.data("contact");
+        this._controller.updateContactsSelected();
+    };
+    
     return MainView;
 });

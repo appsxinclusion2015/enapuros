@@ -44,7 +44,7 @@ define([
         console.log("password", password);
         var currentPwd = localStorage.getItem("password");
         if(currentPwd == password){
-            this._view.showUpdateContacts();
+            this._view.showUpdateContacts(this._models.getContacts());
         }
         else{
             alert("Invalid Pwd");
@@ -67,14 +67,14 @@ define([
     
     
     Controller.prototype.passwordsMatch = function(newPwd, confirmedNewPwd){
-        if(newPwd!= "" && newPwd === confirmedNewPwd){
+        if(newPwd!== "" && newPwd === confirmedNewPwd){
             localStorage.setItem("password", newPwd);
             this._view.showUnlockSettings();
         }
         else{
             alert("La nueva contraseña no corresponde con la confirmacion");
         }
-    }
+    };
 
     Controller.prototype.statusSelected = function (statusId) {
         console.log("statusSelected", statusId);
@@ -152,6 +152,10 @@ define([
                 break;
         }
     };
-
+    
+    Controller.prototype.updateContactsSelected = function () {
+        this._view.showSplash();
+    };
+    
     return Controller;
 });
