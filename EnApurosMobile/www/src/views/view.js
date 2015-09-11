@@ -174,7 +174,7 @@ define(function () {
             item,
             $wrapper,
             $imageDiv,
-            $img,
+            $image,
             $dataDiv,
             $data,
             $text,
@@ -186,8 +186,8 @@ define(function () {
             $wrapper = $("<div data-" + dataKey + "='" + item.id + "' class='list-option'></div>");
             //Img section
             $imageDiv = $("<div style='width: 20%; float:left'></div>");
-            $img = $("<p>hola</p>");
-            $imageDiv.append($img);
+            $image = $("<img src='" + item.image + "' draggable='false' style='height: 100%; width: 100%; object-fit: contain'></img>");
+            $imageDiv.append($image);
             
             //Data section
             $dataDiv = $("<div style='width: 80%;float:right'></div>");
