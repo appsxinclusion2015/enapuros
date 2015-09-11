@@ -44,7 +44,7 @@ define([
         console.log("password", password);
         var currentPwd = localStorage.getItem("password");
         if(currentPwd == password){
-            this._view.showUpdateContacts(this._models.getContacts());
+            this._view.showMainSettings();
         }
         else{
             alert("Invalid Pwd");
@@ -153,8 +153,12 @@ define([
         }
     };
     
+    Controller.prototype.goToUpdateContactsSelected = function () {
+        this._view.showUpdateContacts(this._models.getContacts());
+    };
+    
     Controller.prototype.updateContactsSelected = function () {
-        this._view.showSplash();
+        this._view.showMainSettings();
     };
     
     return Controller;
