@@ -194,6 +194,10 @@ define(["exports"], function (exports) {
     function getLocations() {
         return locations;
     }
+    
+    function getScenarios() {
+        return scenarios;
+    }
 
     function getScenariosByStatus(statusType) {
         var currentScenarios = [];

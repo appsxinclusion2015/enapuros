@@ -29,7 +29,7 @@ define(function () {
         
         this._$btnGoToUpdateContacts = null;
         this._$btnGoToUpdateLocations = null;
-        this._$btnGoToUpdateSituations = null;
+        this._$btnGoToUpdateScenarios = null;
         this._$btnGoToUpdatePassword = null;
         
         this._$btnUpdateContacts = null;
@@ -65,7 +65,7 @@ define(function () {
         
         this._$btnGoToUpdateContacts =  this._$settingsMainPage.find("#go-to-edit-contacts");
         this._$btnGoToUpdateLocations = this._$settingsMainPage.find("#go-to-edit-locations");
-        this._$btnGoToUpdateSituations = this._$settingsMainPage.find("#go-to-edit-situations");
+        this._$btnGoToUpdateScenarios = this._$settingsMainPage.find("#go-to-edit-scenarios");
         this._$btnGoToUpdatePassword = this._$settingsMainPage.find("#go-to-edit-contrasena");
         
         this._$btnUpdateContacts = this._$updateContactsPage.find("#btn-update-contacts");
@@ -86,8 +86,8 @@ define(function () {
         this._$btnUpdateContacts.on("tap", this._onUpdateContacts.bind(this));
         
         this._$btnGoToUpdateContacts.on("tap", this._onGoToUpdateContacts.bind(this));
-        this._$btnGoToUpdateLocations.on("tap", this._onGoToUpdateContacts.bind(this));
-        this._$btnGoToUpdateSituations.on("tap", this._onGoToUpdateContacts.bind(this));
+        this._$btnGoToUpdateLocations.on("tap", this._onGoToUpdateLocations.bind(this));
+        this._$btnGoToUpdateScenarios.on("tap", this._onGoToUpdateScenarios.bind(this));
         this._$btnGoToUpdatePassword.on("tap", this._onGoToUpdatePassword.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
@@ -106,6 +106,7 @@ define(function () {
     };
     
     MainView.prototype.showUnlockSettings = function () {
+        this._$unlockSettingsPage.find("#password").val("");
         $.mobile.changePage(this._$unlockSettingsPage);
     };
     
@@ -158,6 +159,11 @@ define(function () {
         $.mobile.changePage(this._$updateContactsPage);
         this._renderUpdateList(contacts, "contact", this._$contactsToUpdateList);
     };
+    
+    MainView.prototype.showUpdateLocations = function (locations) {
+        $.mobile.changePage(this._$splashPage);
+    };
+    
     
     MainView.prototype.needToSetupSettingsPwd = function(){
         return (localStorage.getItem("password") === null);
@@ -312,12 +318,18 @@ define(function () {
     };
     
     MainView.prototype._onGoToUpdateContacts = function () {
-        alert("pwd!!");
         this._controller.goToUpdateContactsSelected();
     };
     
+    MainView.prototype._onGoToUpdateLocations = function () {
+        this._controller.goToUpdateLocationsSelected();
+    };
+    
+    MainView.prototype._onGoToUpdateScenarios = function () {
+        this._controller.goToUpdateLocationsSelected();
+    };
+    
     MainView.prototype._onGoToUpdatePassword = function () {
-        alert("pwd!!");
         this.showUpdatePassword();
     };
     

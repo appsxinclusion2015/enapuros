@@ -37,6 +37,7 @@ define([
     };
     
     Controller.prototype.navigateToUnlockSettings = function () {
+        
         this._view.showUnlockSettings();
     };
     
@@ -155,6 +156,14 @@ define([
     
     Controller.prototype.goToUpdateContactsSelected = function () {
         this._view.showUpdateContacts(this._models.getContacts());
+    };
+    
+    Controller.prototype.goToUpdateLocationsSelected = function () {
+        this._view.showUpdateLocations(this._models.getLocations());
+    };
+    
+    Controller.prototype.goToUpdateScenariosSelected = function () {
+        this._view.showUpdateLocations(this._models.getScenarios());
     };
     
     Controller.prototype.updateContactsSelected = function () {

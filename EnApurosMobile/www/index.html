@@ -29,7 +29,7 @@
 
 <!-- locked settings page -->
 <div data-role="page" id="unlock-settings-page">
-
+        <div data-role="header" data-add-back-btn="true" class="app-header"></div>
     <div role="main" class="ui-content absolute-center">
         <label for="basic" >Contraseña</label>
         <input type="password" name="name" id="password" value="" data-mini="true">
@@ -39,6 +39,7 @@
 
 <!-- update settings pwd page -->
 <div data-role="page" id="update-settings-pwd-page">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
     <div role="main" class="ui-content absolute-center">
         <label for="basic" id="current-pwd-label">Contraseña actual</label>
@@ -53,6 +54,8 @@
     
 <!-- First time settings pwd page -->
 <div data-role="page" id="new-settings-pwd-page">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
+
     <div role="main" class="ui-content absolute-center">
         <label for="basic" >Nueva contraseña</label>
         <input type="password" name="name" id="new-password" value="" data-mini="true">
@@ -64,11 +67,12 @@
     
 <!-- update list page -->
 <div data-role="page" id="settings-main-page">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
     <div role="main" class="ui-content absolute-center">
         <button id="go-to-edit-contacts" class="ui-btn ui-shadow ui-corner-all">Editar contactos</button>
         <button id="go-to-edit-locations" class="ui-btn ui-shadow ui-corner-all">Editar lugares</button>
-        <button id="go-to-edit-situations" class="ui-btn ui-shadow ui-corner-all">Editar situaciones</button>
+        <button id="go-to-edit-scenarios" class="ui-btn ui-shadow ui-corner-all">Editar escenarios</button>
         <button id="go-to-edit-contrasena" class="ui-btn ui-shadow ui-corner-all">Cambiar contraseña</button>        
     </div>
 </div>
