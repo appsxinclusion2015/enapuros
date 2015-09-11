@@ -191,7 +191,7 @@ define(function () {
             
             //Data section
             $dataDiv = $("<div style='width: 80%;float:right'></div>");
-            $data = $("<p>chau</p>");
+            $data = $("<label for='item-name'>Nombre: </label><span><input type='text' name='name' id='item-name' value="+item.name+"></span>");
             $dataDiv.append($data);
             $wrapper.append($imageDiv);
             $wrapper.append($dataDiv);
