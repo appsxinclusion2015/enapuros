@@ -66,6 +66,8 @@ define(function () {
         this._$contactsToUpdateList = null;
         this._$scenariosToUpdateList = null;
         this._$locationsToUpdateList = null;
+        
+        this._$imgToUpdate = null;
     }
 
     MainView.prototype.initialize = function () {
@@ -146,7 +148,10 @@ define(function () {
         this._$btnGoToUpdateLocations.on("tap", this._onGoToUpdateLocations.bind(this));
         this._$btnGoToUpdateScenarios.on("tap", this._onGoToUpdateScenarios.bind(this));
         this._$btnGoToUpdatePassword.on("tap", this._onGoToUpdatePassword.bind(this));
+        
         this._$btnChangeContactImg.on("tap", this._onChangeContactImage.bind(this));
+        this._$btnChangeLocationImg.on("tap", this._onChangeLocationImage.bind(this));
+        this._$btnChangeScenarioImg.on("tap", this._onChangeScenarioImage.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
@@ -253,8 +258,8 @@ define(function () {
         $.mobile.changePage(this._$updateScenarioPage);
         this._$scenarioId.val(scenario.id);
         this._$scenarioName.val(scenario.name);
-        this._$scenarioImgImg.attr('src', scenario.image);
-        
+        this._$scenarioStatusType.val(scenario.statusType).selectmenu('refresh');
+        this._$scenarioImg.attr('src', scenario.image);
     };
     
     
@@ -486,22 +491,67 @@ define(function () {
      * @private
      */
     MainView.prototype._onUpdateScenario = function () {
-        this.showMainSettings();
+        this._controller.updateScenarioSelected(this._$scenarioIdId.val(), this._$scenarioName.val(), this._$scenarioStatusType.val(), this._$scenarioImg.attr('src'));
     };
     
     /**
      * @private
      */
     MainView.prototype._onChangeContactImage = function () {
-        
-        //move to controller
-        navigator.camera.getPicture(this._onPictureObtainedSuccess, this._onPictureObtainedFail,
+        this._$imgToUpdate = 'contact-img';
+        this._onChangeImage();
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onChangeLocationImage = function () {
+       //move to controller
+        navigator.camera.getPicture(this._onLocationObtainedSuccess, this._onPictureObtainedFail,
             { destinationType: Camera.DestinationType.FILE_URI,
                 sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });
     };
     
-    MainView.prototype._onPictureObtainedSuccess = function(imageURI){
+    /**
+     * @private
+     */
+    MainView.prototype._onLocationObtainedSuccess = function(imageURI){
+        var image = document.getElementById('location-img');
+        image.src = imageURI;
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onChangeScenarioImage = function () {
+        //move to controller
+        navigator.camera.getPicture(this._onScenarioObtainedSuccess, this._onPictureObtainedFail,
+            { destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+        });
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onScenarioObtainedSuccess = function(imageURI){
+        var image = document.getElementById('scenario-img');
+        image.src = imageURI;
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onChangeContactImage = function (entity) { 
+        //move to controller
+        navigator.camera.getPicture(this._onContactObtainedSuccess, this._onPictureObtainedFail,
+            { destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+        });
+    };
+    
+    MainView.prototype._onContactObtainedSuccess = function(imageURI){
         var image = document.getElementById('contact-img');
         image.src = imageURI;
     };

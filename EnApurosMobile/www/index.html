@@ -232,13 +232,13 @@
         <label for="basic" >Nombre</label>
         <input type="text" name="name" id="scenario-name" data-mini="true">
         <label for="basic" >Tipo de escenario</label>
-         <select class="easyui-combobox" id="scenario-status-type" style="width:200px;">
-             <option id="scenario-positive">Positivo</option>
-             <option id="scenario-negative">Negativo</option>
-             <option id="scenario-neutral">Neutral</option>
-         </select>
+        <select name="select-native-2" id="scenario-status-type" data-mini="true" id="scenario-status-type">
+            <option value="positive">Positivo</option>
+            <option value="negative">Negativo</option>
+            <option value="neutral">Neutral</option>
+        </select>
         <div style="height: 250px">
-            <img id="location-img" draggable='false' style="width: 100%;max-height: 100%" ></img>
+            <img id="scenario-img" draggable='false' style="width: 100%;max-height: 100%" ></img>
         </div>
         <button id="change-scenario-img">Cambiar imagen</button>
         <a href="#update-scenarios-page" data-role="button" data-inline="true" data-theme="b" data-icon="check" class="settings" id="btn-update-scenario">Guardar</a> 

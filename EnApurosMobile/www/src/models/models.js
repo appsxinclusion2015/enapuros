@@ -288,7 +288,7 @@ define(["exports"], function (exports) {
         return result? result[0] : null; 
     }
     
-    function getScenariosById(id) {
+    function getScenarioById(id) {
         var result  = scenarios.filter(function(s){return s._id== id;} );
         return result? result[0] : null; 
     }
@@ -359,6 +359,10 @@ define(["exports"], function (exports) {
     exports.getStatusById        = getStatusById;
     exports.getScenariosByStatus = getScenariosByStatus;
     exports.getContactById       = getContactById;
+    exports.getLocationById      = getLocationById;
+    exports.getScenarioById      = getScenarioById;
     exports.StatusCategory       = Status.Categories;
     exports.updateContact        = updateContact;  
+    exports.updateScenario       = updateScenario
+    exports.updateLocation        = updateLocation;  
 });

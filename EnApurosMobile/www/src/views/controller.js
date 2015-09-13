@@ -186,5 +186,15 @@ define([
         this._view.showUpdateContacts(this._models.getContacts());
     };
     
+     Controller.prototype.updateScenarioSelected = function (scenarioId, scenarioName, scenarioStatusType, scenarioImg) {
+        this._models.updateScenario(scenarioId, scenarioName, scenarioStatusType, scenarioImg);
+        this._view.showUpdateScenarios(this._models.getScenarios());
+    };
+    
+    Controller.prototype.updateLocationSelected = function (locationId, locationName, locationImg) {
+        this._models.updateLocation(locationId, locationName, locationImg);
+        this._view.showUpdateLocations(this._models.getLocations());
+    };
+    
     return Controller;
 });
