@@ -186,6 +186,49 @@ define(["exports"], function (exports) {
         retrieveContacts();
     }
     
+    function updateScenario(scenarioId, name, status_type, img){
+        var scenariosFromStorage = getStoredItem('scenarios');
+        var id = parseInt(scenarioId);
+        for (var i = 0; i < scenariosFromStorage.length; i++) {
+            if(id === scenariosFromStorage[i].id){  
+                scenariosFromStorage[i].name = name;
+                scenariosFromStorage[i].status_type = status_type;
+                scenariosFromStorage[i].img = img;
+                break;  
+            }
+        }
+        
+        //Cleanup current items before updating
+        restoreItem('scenarios');
+        scenarios = [];
+        
+        saveItem('scenarios', scenariosFromStorage);  
+        
+        //Update scenarios list object with new info
+        retrieveScenarios();
+    }
+    
+    function updateLocation(locationId, name, img){
+        var locationsFromStorage = getStoredItem('locations');
+        var id = parseInt(locationId);
+        for (var i = 0; i < locationsFromStorage.length; i++) {
+            if(id === locationsFromStorage[i].id){  
+                locationsFromStorage[i].name = name;
+                locationsFromStorage[i].img = img;
+                break;  
+            }
+        }
+        
+        //Cleanup current items before updating
+        restoreItem('locations');
+        locations = [];
+        
+        saveItem('locations', locationsFromStorage);  
+        
+        //Update locations list object with new info
+        retrieveLocations();
+    }
+    
     
     function getContacts() {
         return contacts;
@@ -260,7 +303,6 @@ define(["exports"], function (exports) {
         retrieveLocations();
         retrieveScenarios();
         retrieveContacts();
-        
     }
     
     function retrieveLocations(){
