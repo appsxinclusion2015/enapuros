@@ -251,7 +251,7 @@ define(function () {
         $.mobile.changePage(this._$updateLocationPage);
         this._$locationId.val(location.id);
         this._$locationName.val(location.name);
-        this._$contactImg.attr('src', location.image);
+        this._$locationImg.attr('src', location.image);
     };
     
     MainView.prototype.showUpdateScenario = function (scenario) {
@@ -484,7 +484,7 @@ define(function () {
      * @private
      */
     MainView.prototype._onUpdateLocation = function () {
-        this.showMainSettings();
+         this._controller.updateLocationSelected(this._$locationId.val(), this._$locationName.val(), this._$locationImg.attr('src'));
     };
     
     /**

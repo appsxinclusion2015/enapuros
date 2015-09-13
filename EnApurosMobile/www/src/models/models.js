@@ -210,9 +210,8 @@ define(["exports"], function (exports) {
     
     function updateLocation(locationId, name, img){
         var locationsFromStorage = getStoredItem('locations');
-        var id = parseInt(locationId);
         for (var i = 0; i < locationsFromStorage.length; i++) {
-            if(id === locationsFromStorage[i].id){  
+            if(locationId === locationsFromStorage[i].id){  
                 locationsFromStorage[i].name = name;
                 locationsFromStorage[i].img = img;
                 break;  
@@ -364,5 +363,5 @@ define(["exports"], function (exports) {
     exports.StatusCategory       = Status.Categories;
     exports.updateContact        = updateContact;  
     exports.updateScenario       = updateScenario
-    exports.updateLocation        = updateLocation;  
+    exports.updateLocation       = updateLocation;  
 });
