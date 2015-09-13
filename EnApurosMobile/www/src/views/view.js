@@ -26,6 +26,7 @@ define(function () {
         this._$contactEmail = null;
         this._$contactPhone = null;
         this._$contactImg = null;
+        this._$btnChangeContactImg = null;
         
         this._$btnGoToHome = null;
         this._$btnGear = null;
@@ -88,6 +89,7 @@ define(function () {
         this._$contactEmail = this._$updateContactPage.find("#contact-email");
         this._$contactPhone = this._$updateContactPage.find("#contact-phone");
         this._$contactImg = this._$updateContactPage.find("#contact-img");
+        this._$btnChangeContactImg = this._$updateContactPage.find("#change-contact-img");
         this._$btnUpdateContact.on("tap", this._onUpdateContact.bind(this));
         
         this._$btnGoToHome.on("tap", this._onNavigateToHome.bind(this));
@@ -101,6 +103,7 @@ define(function () {
         this._$btnGoToUpdateLocations.on("tap", this._onGoToUpdateLocations.bind(this));
         this._$btnGoToUpdateScenarios.on("tap", this._onGoToUpdateScenarios.bind(this));
         this._$btnGoToUpdatePassword.on("tap", this._onGoToUpdatePassword.bind(this));
+        this._$btnChangeContactImg.on("tap", this._onChangeContactImage.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
@@ -388,5 +391,25 @@ define(function () {
         this._controller.updateContactSelected(key);
     };
     
+    /**
+     * @private
+     */
+    MainView.prototype._onChangeContactImage = function () {
+        
+        //move to controller
+        navigator.camera.getPicture(_onPictureObtainedSuccess, _onPictureObtainedFail,
+            { destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+        });
+    };
+    
+    function _onPictureObtainedSuccess(imageURI){
+        alert(imageURI);
+        this._$contactImg.attr('src', imageURI);
+    }
+    
+    function _onPictureObtainedFail(msg){
+        alert(msg);
+    }    
     return MainView;
 });
