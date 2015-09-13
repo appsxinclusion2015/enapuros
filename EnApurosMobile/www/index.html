@@ -173,15 +173,17 @@
 <div data-role="page" id="update-contact-page">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content absolute-center">
+    <div role="main" class="ui-content absolute-center-for-contact">
         <label for="basic" >Nombre</label>
         <input type="text" name="name" id="contact-name" data-mini="true">
         <label for="basic" >e-mail</label>
         <input type="text" name="email" id="contact-email" data-mini="true">
         <label for="basic" >Teléfono</label>
         <input type="text" name="phone" id="contact-phone" data-mini="true">
-        <label for="basic" >Imágen</label>
-        <input type="text" name="img" id="contact-img" data-mini="true">
+        <div style="height: 250px">
+            <img id="contact-img" draggable='false' style="width: 100%;max-height: 100%" ></img>
+        </div>
+        <button id="change-contact-img">Cambiar imagen</button>
         <a href="#update-contacts-page" data-role="button" data-inline="true" data-theme="b" data-icon="check" class="settings" id="btn-update-contact">Guardar</a> 
     </div>
 </div>

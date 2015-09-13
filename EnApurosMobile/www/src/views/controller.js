@@ -114,7 +114,8 @@ define([
     };
     
     Controller.prototype.contactToUpdateSelected = function (contactId) {
-        this._view.showUpdateContact();
+        var contact = this._models.getContactById(contactId);
+        this._view.showUpdateContact(contact);
     };
 
     Controller.prototype.notificationSelected = function (action) {
@@ -170,7 +171,7 @@ define([
         this._view.showUpdateLocations(this._models.getScenarios());
     };
     
-    Controller.prototype.updateContactSelected = function () {
+    Controller.prototype.updateContactSelected = function (contactId) {
         this._view.showMainSettings();
     };
     

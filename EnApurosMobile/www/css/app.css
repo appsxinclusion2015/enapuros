@@ -155,6 +155,27 @@ input, textarea  {
     text-align: center;
     vertical-align: middle;
 }
+
+.absolute-center-for-contact {
+    /* Must manually set width/height */
+    width:250px;
+    height:600px;
+
+    /* The magic centering code */
+    margin:auto;
+    position:absolute;
+    top:0;bottom:0; /* Aligns Vertically - Remove for Horizontal Only */
+    left:0;right:0; /* Aligns Horizontally - Remove for Vertical Only  */
+
+    /* Prevent div from overflowing main window */
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+    
+    text-align: center;
+    vertical-align: middle;
+}
+
 .go-to-home {
     position: absolute;
     margin: auto;

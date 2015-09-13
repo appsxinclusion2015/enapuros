@@ -257,5 +257,6 @@ define(["exports"], function (exports) {
     exports.getLocations         = getLocations;
     exports.getStatusById        = getStatusById;
     exports.getScenariosByStatus = getScenariosByStatus;
+    exports.getContactById       = getContactById;
     exports.StatusCategory       = Status.Categories;
 });

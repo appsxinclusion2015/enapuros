@@ -175,6 +175,10 @@ define(function () {
     
     MainView.prototype.showUpdateContact = function (contact) {
         $.mobile.changePage(this._$updateContactPage);
+        this._$contactName.val(contact.name);
+        this._$contactEmail.val(contact.email);
+        this._$contactPhone.val(contact.phone);
+        this._$contactImg.attr('src', contact.image);
         
     };
     
@@ -381,7 +385,7 @@ define(function () {
     MainView.prototype._onUpdateContact = function (event) {
         var $target = $(event.currentTarget),
             key = $target.data("contact");
-        this._controller.updateContactSelected();
+        this._controller.updateContactSelected(key);
     };
     
     return MainView;
