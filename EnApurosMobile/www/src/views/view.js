@@ -388,7 +388,7 @@ define(function () {
     MainView.prototype._onUpdateContact = function (event) {
         var $target = $(event.currentTarget),
             key = $target.data("contact");
-        this._controller.updateContactSelected(key);
+        this._controller.updateContactSelected(key,  this._$contactName, this._$contactEmail,  this._$contactPhone,  this._$contactImg);
     };
     
     /**

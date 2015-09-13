@@ -171,7 +171,8 @@ define([
         this._view.showUpdateLocations(this._models.getScenarios());
     };
     
-    Controller.prototype.updateContactSelected = function (contactId) {
+    Controller.prototype.updateContactSelected = function (contactId, contactName, contactEmail, contactPhone, contactImg) {
+        
         this._view.showMainSettings();
     };
     

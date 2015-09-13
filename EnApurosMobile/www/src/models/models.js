@@ -162,7 +162,12 @@ define(["exports"], function (exports) {
             }
         }
     });
-
+    
+    function updateContact(id, name, phone, email, img){
+        
+    }
+    
+    
     function getContacts() {
         return contacts;
     }
@@ -216,37 +221,49 @@ define(["exports"], function (exports) {
         return result? result[0] : null; 
     }
 
-    function _init() {        
+    function _init() {    
+        
+        //TODO: Move this to an installation time only
         statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/icon-feliz.png"));
         statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, "assets/icon-triste.png"));
         
         var locationsToStore = [{"id":"casa","name":"Casa", "img":"assets/icon-casa.png"}, {"id":"escuela","name":"Escuela", "img":"assets/icon-escuela.png"}, {"id":"calle","name":"Calle", "img":"assets/icon-calle.png"}, {"id":"parque","name":"Parque", "img":"assets/icon-parque.png"}];
     
-    var scenariosToStore = [{"id":1,"name":"Me lastimé", "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-lastimado.png"}, {"id":2,"name":"Estoy encerrado", "status_type":Status.Categories.NEGATIVE, "img":"assets/icon-encerrado.png"}, {"id":3,"name":"Me perdí",  "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-perdido.png"}];
+        var scenariosToStore = [{"id":1,"name":"Me lastimé", "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-lastimado.png"}, {"id":2,"name":"Estoy encerrado", "status_type":Status.Categories.NEGATIVE, "img":"assets/icon-encerrado.png"}, {"id":3,"name":"Me perdí",  "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-perdido.png"}];
     
-    var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"blob:file%3A///490b3d98-756f-40dd-af82-0e42f74b5ea1"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
+        var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"blob:file%3A///490b3d98-756f-40dd-af82-0e42f74b5ea1"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
         
-    localStorage.setItem('locations', JSON.stringify(locationsToStore));
-    localStorage.setItem('scenarios', JSON.stringify(scenariosToStore));
-    localStorage.setItem('contacts', JSON.stringify(contactsToStore));
+        saveItem('locations', locationsToStore);
+        saveItem('scenarios', scenariosToStore);
+        saveItem('contacts', contactsToStore);
         
-        var locationsFromStorage = JSON.parse(localStorage.getItem('locations'));
+        //END TODO
+        
+        var locationsFromStorage = getStoredItem('locations');
         for (var i = 0; i < locationsFromStorage.length; i++) {
             var location = locationsFromStorage[i];
             locations.push(new Location(location.id, location.name, location.img));
         }
         
-        var scenariosFromStorage = JSON.parse(localStorage.getItem('scenarios'));
+        var scenariosFromStorage = getStoredItem('scenarios');
         for (i = 0; i < scenariosFromStorage.length; i++) {
             var scenario = scenariosFromStorage[i];
             scenarios.push(new Scenario(scenario.id, scenario.name, scenario.status_type, scenario.img));
         }
         
-        var contactsFromStorage = JSON.parse(localStorage.getItem('contacts'));
+        var contactsFromStorage = getStoredItem('contacts');
         for (i = 0; i < contactsFromStorage.length; i++) {
             var contact = contactsFromStorage[i];
             contacts.push(new Contact(contact.id, contact.name, contact.phone, contact.email, contact.img));
         }
+    }
+    
+    function getStoredItem(key){
+        return JSON.parse(localStorage.getItem(key));
+    }
+    
+    function saveItem(key, data){
+        localStorage.setItem(key, JSON.stringify(data));
     }
 
     _init();
