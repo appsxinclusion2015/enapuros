@@ -282,6 +282,16 @@ define(["exports"], function (exports) {
         var result  = contacts.filter(function(c){return c._id== id;} );
         return result? result[0] : null; 
     }
+    
+    function getLocationById(id) {
+        var result  = locations.filter(function(l){return l._id== id;} );
+        return result? result[0] : null; 
+    }
+    
+    function getScenariosById(id) {
+        var result  = scenarios.filter(function(s){return s._id== id;} );
+        return result? result[0] : null; 
+    }
 
     function _init() {    
         
@@ -345,6 +355,7 @@ define(["exports"], function (exports) {
     exports.getStatus            = getStatus;
     exports.getSplash            = getSplash;
     exports.getLocations         = getLocations;
+    exports.getScenarios         = getScenarios;
     exports.getStatusById        = getStatusById;
     exports.getScenariosByStatus = getScenariosByStatus;
     exports.getContactById       = getContactById;

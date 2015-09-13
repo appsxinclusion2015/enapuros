@@ -189,6 +189,62 @@
     </div>
 </div>
 
+<!-- update locations page -->
+<div data-role="page" id="update-locations-page" data-theme="a">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
+
+    <div role="main" class="ui-content">
+        <div id="locations-to-update-list" class="app-list"></div>
+    </div>
+</div>
+    
+<!-- Edit location page -->
+<div data-role="page" id="update-location-page">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
+
+    <div role="main" class="ui-content absolute-center-for-contact">
+        <input type="hidden" value="" id="location-id" />
+        <label for="basic" >Nombre</label>
+        <input type="text" name="name" id="location-name" data-mini="true">
+        <div style="height: 250px">
+            <img id="location-img" draggable='false' style="width: 100%;max-height: 100%" ></img>
+        </div>
+        <button id="change-location-img">Cambiar imagen</button>
+        <a href="#update-locations-page" data-role="button" data-inline="true" data-theme="b" data-icon="check" class="settings" id="btn-update-location">Guardar</a> 
+    </div>
+</div>
+
+<!-- update scenarios page -->
+<div data-role="page" id="update-scenarios-page" data-theme="a">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
+
+    <div role="main" class="ui-content">
+        <div id="scenarios-to-update-list" class="app-list"></div>
+    </div>
+</div>
+    
+<!-- Edit scenario page -->
+<div data-role="page" id="update-scenario-page">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
+
+    <div role="main" class="ui-content absolute-center-for-contact">
+        <input type="hidden" value="" id="scenario-id" />
+        <label for="basic" >Nombre</label>
+        <input type="text" name="name" id="scenario-name" data-mini="true">
+        <label for="basic" >Tipo de escenario</label>
+         <select class="easyui-combobox" id="scenario-status-type" style="width:200px;">
+             <option id="scenario-positive">Positivo</option>
+             <option id="scenario-negative">Negativo</option>
+             <option id="scenario-neutral">Neutral</option>
+         </select>
+        <div style="height: 250px">
+            <img id="location-img" draggable='false' style="width: 100%;max-height: 100%" ></img>
+        </div>
+        <button id="change-scenario-img">Cambiar imagen</button>
+        <a href="#update-scenarios-page" data-role="button" data-inline="true" data-theme="b" data-icon="check" class="settings" id="btn-update-scenario">Guardar</a> 
+    </div>
+</div>
+
     
 </body>
 </html>

@@ -19,15 +19,29 @@ define(function () {
         this._$contactsPage = null;
         this._$notificationsPage = null;
         this._$settingsMainPage = null;
-        this._$updateContactsPage = null;
         
-        this._$updateContactPage = null;
+        this._$updateContactsPage = null;
+        this._$updateLocationsPage = null;
+        this._$updateScenariosPage = null;
+        
         this._$contactName = null;
         this._$contactId = null;
         this._$contactEmail = null;
         this._$contactPhone = null;
         this._$contactImg = null;
         this._$btnChangeContactImg = null;
+        
+        this._$locationId = null;
+        this._$locationName = null;
+        this._$locationImg = null;
+        this._$btnChangeLocationImg = null;
+        
+        this._$scenarioId = null;
+        this._$scenarioName = null;
+        this._$scenarioStatusType = null;
+        this._$scenarioImg = null;
+        this._$btnChangeScenarioImg = null;
+        
         
         this._$btnGoToHome = null;
         this._$btnGear = null;
@@ -41,6 +55,8 @@ define(function () {
         this._$btnGoToUpdatePassword = null;
         
         this._$btnUpdateContact = null;
+        this._$btnUpdateLocation = null;
+        this._$btnUpdateScenario = null;
         
         this._$statusList = null;
         this._$locationsList = null;
@@ -48,6 +64,8 @@ define(function () {
         this._$contactsList = null;
         
         this._$contactsToUpdateList = null;
+        this._$scenariosToUpdateList = null;
+        this._$locationsToUpdateList = null;
     }
 
     MainView.prototype.initialize = function () {
@@ -61,8 +79,13 @@ define(function () {
         this._$contactsPage = $("#contacts-page");
         this._$notificationsPage = $("#notification-page");
         this._$settingsMainPage = $("#settings-main-page");
+        
         this._$updateContactsPage = $("#update-contacts-page");
         this._$updateContactPage = $("#update-contact-page");
+        this._$updateLocationsPage = $("#update-locations-page");
+        this._$updateLocationPage = $("#update-location-page");
+        this._$updateScenariosPage = $("#update-scenarios-page");
+        this._$updateScenarioPage = $("#update-scenario-page");
 
         this._$btnGoToHome = this._$splashPage.find("#btn-init");
         this._$btnGear = this._$splashPage.find("#btn-settings");
@@ -78,6 +101,8 @@ define(function () {
         this._$btnGoToUpdatePassword = this._$settingsMainPage.find("#go-to-edit-contrasena");
         
         this._$btnUpdateContact = this._$updateContactPage.find("#btn-update-contact");
+        this._$btnUpdateLocation = this._$updateLocationPage.find("#btn-update-location");
+        this._$btnUpdateScenario = this._$updateScenarioPage.find("#btn-update-scenario");
 
         this._$statusList = this._$statusPage.find("#status-list");
         this._$locationsList = this._$locationsPage.find("#locations-list");
@@ -85,6 +110,8 @@ define(function () {
         this._$contactsList = this._$contactsPage.find("#contacts-list");
 
         this._$contactsToUpdateList = this._$updateContactsPage.find("#contacts-to-update-list");
+        this._$scenariosToUpdateList = this._$updateScenariosPage.find("#scenarios-to-update-list");
+        this._$locationsToUpdateList = this._$updateLocationsPage.find("#locations-to-update-list");
         
         this._$contactId = this._$updateContactPage.find("#contact-id");
         this._$contactName = this._$updateContactPage.find("#contact-name");
@@ -93,6 +120,20 @@ define(function () {
         this._$contactImg = this._$updateContactPage.find("#contact-img");
         this._$btnChangeContactImg = this._$updateContactPage.find("#change-contact-img");
         this._$btnUpdateContact.on("tap", this._onUpdateContact.bind(this));
+        
+        this._$locationId = this._$updateLocationPage.find("#location-id");
+        this._$locationName = this._$updateLocationPage.find("#location-name");
+        this._$locationImg = this._$updateLocationPage.find("#location-img");
+        this._$btnChangeLocationImg = this._$updateLocationPage.find("#change-location-img");
+        this._$btnUpdateLocation.on("tap", this._onUpdateLocation.bind(this));
+        
+        this._$scenarioId = this._$updateScenarioPage.find("#scenario-id");
+        this._$scenarioName = this._$updateScenarioPage.find("#scenario-name");
+        this._$scenarioImg = this._$updateScenarioPage.find("#scenario-img");
+        this._$scenarioStatusType = this._$updateScenarioPage.find("#scenario-status-type");
+        this._$btnChangeScenarioImg = this._$updateScenarioPage.find("#change-scenario-img");
+        this._$btnUpdateScenario.on("tap", this._onUpdateScenario.bind(this));
+        
         
         this._$btnGoToHome.on("tap", this._onNavigateToHome.bind(this));
         this._$btnGear.on("tap", this._onNavigateToUnlockSettings.bind(this));
@@ -111,8 +152,11 @@ define(function () {
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
         this._$scenariosList.on("tap", "[data-scenario]", this._onScenarioSelected.bind(this));
         this._$contactsList.on("tap", "[data-contact]", this._onContactSelected.bind(this));
-        this._$contactsToUpdateList.on("tap", "[data-contact]", this._onContactToUpdateSelected.bind(this));
 
+        this._$contactsToUpdateList.on("tap", "[data-contact]", this._onContactToUpdateSelected.bind(this));
+        this._$locationsToUpdateList.on("tap", "[data-location]", this._onLocationToUpdateSelected.bind(this));
+        this._$scenariosToUpdateList.on("tap", "[data-scenario]", this._onScenarioToUpdateSelected.bind(this));
+        
         this._$notificationsPage.on("tap", "[data-notification-action]", this._onNotificationSelected.bind(this));
         
         $.mobile.toolbar.prototype.options.backBtnText = "VOLVER";
@@ -178,6 +222,16 @@ define(function () {
         this._renderOptions(contacts, "contact", this._$contactsToUpdateList);
     };
     
+     MainView.prototype.showUpdateLocations = function (locations) {
+        $.mobile.changePage(this._$updateLocationsPage);
+        this._renderOptions(locations, "location", this._$locationsToUpdateList);
+    };
+    
+    MainView.prototype.showUpdateScenarios = function (scenarios) {
+        $.mobile.changePage(this._$updateScenariosPage);
+        this._renderOptions(scenarios, "scenario", this._$scenariosToUpdateList);
+    };
+    
     MainView.prototype.showUpdateContact = function (contact) {
         $.mobile.changePage(this._$updateContactPage);
         this._$contactId.val(contact.id);
@@ -188,8 +242,19 @@ define(function () {
         
     };
     
-    MainView.prototype.showUpdateLocations = function (locations) {
-        $.mobile.changePage(this._$splashPage);
+    MainView.prototype.showUpdateLocation = function (location) {
+        $.mobile.changePage(this._$updateLocationPage);
+        this._$locationId.val(location.id);
+        this._$locationName.val(location.name);
+        this._$contactImg.attr('src', location.image);
+    };
+    
+    MainView.prototype.showUpdateScenario = function (scenario) {
+        $.mobile.changePage(this._$updateScenarioPage);
+        this._$scenarioId.val(scenario.id);
+        this._$scenarioName.val(scenario.name);
+        this._$scenarioImgImg.attr('src', scenario.image);
+        
     };
     
     
@@ -346,6 +411,24 @@ define(function () {
             key = $target.data("contact");
         this._controller.contactToUpdateSelected(key);
     };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onLocationToUpdateSelected = function (event) {
+        var $target = $(event.currentTarget),
+            key = $target.data("location");
+        this._controller.locationToUpdateSelected(key);
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onScenarioToUpdateSelected = function (event) {
+        var $target = $(event.currentTarget),
+            key = $target.data("scenario");
+        this._controller.scenarioToUpdateSelected(key);
+    };
 
     /**
      * @private
@@ -375,7 +458,7 @@ define(function () {
      * @private
      */
     MainView.prototype._onGoToUpdateScenarios = function () {
-        this._controller.goToUpdateLocationsSelected();
+        this._controller.goToUpdateScenariosSelected();
     };
     
     /**
@@ -390,6 +473,20 @@ define(function () {
      */
     MainView.prototype._onUpdateContact = function () {
         this._controller.updateContactSelected(this._$contactId.val(), this._$contactName.val(), this._$contactEmail.val(),  this._$contactPhone.val(), this._$contactImg.attr('src'));
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onUpdateLocation = function () {
+        this.showMainSettings();
+    };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onUpdateScenario = function () {
+        this.showMainSettings();
     };
     
     /**

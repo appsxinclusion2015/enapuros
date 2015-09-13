@@ -117,6 +117,16 @@ define([
         var contact = this._models.getContactById(contactId);
         this._view.showUpdateContact(contact);
     };
+    
+    Controller.prototype.scenarioToUpdateSelected = function (scenarioId) {
+        var scenario = this._models.getScenarioById(scenarioId);
+        this._view.showUpdateScenario(scenario);
+    };
+    
+    Controller.prototype.locationToUpdateSelected = function (locationId) {
+        var location = this._models.getLocationById(locationId);
+        this._view.showUpdateLocation(location);
+    };
 
     Controller.prototype.notificationSelected = function (action) {
         switch (action) {
@@ -168,7 +178,7 @@ define([
     };
     
     Controller.prototype.goToUpdateScenariosSelected = function () {
-        this._view.showUpdateLocations(this._models.getScenarios());
+        this._view.showUpdateScenarios(this._models.getScenarios());
     };
     
     Controller.prototype.updateContactSelected = function (contactId, contactName, contactEmail, contactPhone, contactImg) {
