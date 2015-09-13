@@ -397,19 +397,20 @@ define(function () {
     MainView.prototype._onChangeContactImage = function () {
         
         //move to controller
-        navigator.camera.getPicture(_onPictureObtainedSuccess, _onPictureObtainedFail,
+        navigator.camera.getPicture(this._onPictureObtainedSuccess, this._onPictureObtainedFail,
             { destinationType: Camera.DestinationType.FILE_URI,
                 sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });
     };
     
-    function _onPictureObtainedSuccess(imageURI){
-        alert(imageURI);
-        this._$contactImg.attr('src', imageURI);
-    }
+    MainView.prototype._onPictureObtainedSuccess = function(imageURI){
+        var image = document.getElementById('contact-img');
+        image.src = imageURI;
+    };
     
-    function _onPictureObtainedFail(msg){
-        alert(msg);
-    }    
+    MainView.prototype._onPictureObtainedFail = function (msg){
+        alert("No pudimos obtener la imagen, por favor intente nuevamente");
+    };
+    
     return MainView;
 });

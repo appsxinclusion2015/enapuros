@@ -224,7 +224,7 @@ define(["exports"], function (exports) {
     
     var scenariosToStore = [{"id":1,"name":"Me lastimé", "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-lastimado.png"}, {"id":2,"name":"Estoy encerrado", "status_type":Status.Categories.NEGATIVE, "img":"assets/icon-encerrado.png"}, {"id":3,"name":"Me perdí",  "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-perdido.png"}];
     
-    var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"assets/icon-mama.png"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
+    var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"blob:file%3A///490b3d98-756f-40dd-af82-0e42f74b5ea1"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
         
     localStorage.setItem('locations', JSON.stringify(locationsToStore));
     localStorage.setItem('scenarios', JSON.stringify(scenariosToStore));
