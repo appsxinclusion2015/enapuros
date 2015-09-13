@@ -491,7 +491,7 @@ define(function () {
      * @private
      */
     MainView.prototype._onUpdateScenario = function () {
-        this._controller.updateScenarioSelected(this._$scenarioIdId.val(), this._$scenarioName.val(), this._$scenarioStatusType.val(), this._$scenarioImg.attr('src'));
+        this._controller.updateScenarioSelected(this._$scenarioId.val(), this._$scenarioName.val(), this._$scenarioStatusType.val(), this._$scenarioImg.attr('src'));
     };
     
     /**
