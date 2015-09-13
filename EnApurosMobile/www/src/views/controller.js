@@ -172,8 +172,8 @@ define([
     };
     
     Controller.prototype.updateContactSelected = function (contactId, contactName, contactEmail, contactPhone, contactImg) {
-        
-        this._view.showMainSettings();
+        this._models.updateContact(contactId, contactName, contactPhone, contactEmail, contactImg);
+        this._view.showUpdateContacts(this._models.getContacts());
     };
     
     return Controller;

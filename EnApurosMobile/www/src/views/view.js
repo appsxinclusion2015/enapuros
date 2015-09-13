@@ -23,6 +23,7 @@ define(function () {
         
         this._$updateContactPage = null;
         this._$contactName = null;
+        this._$contactId = null;
         this._$contactEmail = null;
         this._$contactPhone = null;
         this._$contactImg = null;
@@ -76,7 +77,7 @@ define(function () {
         this._$btnGoToUpdateScenarios = this._$settingsMainPage.find("#go-to-edit-scenarios");
         this._$btnGoToUpdatePassword = this._$settingsMainPage.find("#go-to-edit-contrasena");
         
-        this._$btnUpdateContact = this._$updateContactsPage.find("#btn-update-contacts");
+        this._$btnUpdateContact = this._$updateContactPage.find("#btn-update-contact");
 
         this._$statusList = this._$statusPage.find("#status-list");
         this._$locationsList = this._$locationsPage.find("#locations-list");
@@ -85,6 +86,7 @@ define(function () {
 
         this._$contactsToUpdateList = this._$updateContactsPage.find("#contacts-to-update-list");
         
+        this._$contactId = this._$updateContactPage.find("#contact-id");
         this._$contactName = this._$updateContactPage.find("#contact-name");
         this._$contactEmail = this._$updateContactPage.find("#contact-email");
         this._$contactPhone = this._$updateContactPage.find("#contact-phone");
@@ -178,6 +180,7 @@ define(function () {
     
     MainView.prototype.showUpdateContact = function (contact) {
         $.mobile.changePage(this._$updateContactPage);
+        this._$contactId.val(contact.id);
         this._$contactName.val(contact.name);
         this._$contactEmail.val(contact.email);
         this._$contactPhone.val(contact.phone);
@@ -385,10 +388,8 @@ define(function () {
     /**
      * @private
      */
-    MainView.prototype._onUpdateContact = function (event) {
-        var $target = $(event.currentTarget),
-            key = $target.data("contact");
-        this._controller.updateContactSelected(key,  this._$contactName, this._$contactEmail,  this._$contactPhone,  this._$contactImg);
+    MainView.prototype._onUpdateContact = function () {
+        this._controller.updateContactSelected(this._$contactId.val(), this._$contactName.val(), this._$contactEmail.val(),  this._$contactPhone.val(), this._$contactImg.attr('src'));
     };
     
     /**

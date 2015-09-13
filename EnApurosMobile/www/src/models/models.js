@@ -163,8 +163,27 @@ define(["exports"], function (exports) {
         }
     });
     
-    function updateContact(id, name, phone, email, img){
+    function updateContact(contactId, name, phone, email, img){
+        var contactsFromStorage = getStoredItem('contacts');
+        var id = parseInt(contactId);
+        for (var i = 0; i < contactsFromStorage.length; i++) {
+            if(id === contactsFromStorage[i].id){  
+                contactsFromStorage[i].name = name;
+                contactsFromStorage[i].phone = phone;
+                contactsFromStorage[i].email = email;
+                contactsFromStorage[i].img = img;
+                break;  
+            }
+        }
         
+        //Cleanup current items before updating
+        restoreItem('contacts');
+        contacts = [];
+        
+        saveItem('contacts', contactsFromStorage);  
+        
+        //Update contacts list object with new info
+        retrieveContacts();
     }
     
     
@@ -231,28 +250,36 @@ define(["exports"], function (exports) {
     
         var scenariosToStore = [{"id":1,"name":"Me lastimé", "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-lastimado.png"}, {"id":2,"name":"Estoy encerrado", "status_type":Status.Categories.NEGATIVE, "img":"assets/icon-encerrado.png"}, {"id":3,"name":"Me perdí",  "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-perdido.png"}];
     
-        var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"blob:file%3A///490b3d98-756f-40dd-af82-0e42f74b5ea1"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
+        var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"assets/icon-mama.png"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
         
         saveItem('locations', locationsToStore);
         saveItem('scenarios', scenariosToStore);
         saveItem('contacts', contactsToStore);
         
         //END TODO
+        retrieveLocations();
+        retrieveScenarios();
+        retrieveContacts();
         
+    }
+    
+    function retrieveLocations(){
         var locationsFromStorage = getStoredItem('locations');
         for (var i = 0; i < locationsFromStorage.length; i++) {
             var location = locationsFromStorage[i];
             locations.push(new Location(location.id, location.name, location.img));
         }
-        
+    }
+    function retrieveScenarios(){
         var scenariosFromStorage = getStoredItem('scenarios');
-        for (i = 0; i < scenariosFromStorage.length; i++) {
+        for (var i = 0; i < scenariosFromStorage.length; i++) {
             var scenario = scenariosFromStorage[i];
             scenarios.push(new Scenario(scenario.id, scenario.name, scenario.status_type, scenario.img));
         }
-        
+    }
+    function retrieveContacts(){
         var contactsFromStorage = getStoredItem('contacts');
-        for (i = 0; i < contactsFromStorage.length; i++) {
+        for (var i = 0; i < contactsFromStorage.length; i++) {
             var contact = contactsFromStorage[i];
             contacts.push(new Contact(contact.id, contact.name, contact.phone, contact.email, contact.img));
         }
@@ -260,6 +287,10 @@ define(["exports"], function (exports) {
     
     function getStoredItem(key){
         return JSON.parse(localStorage.getItem(key));
+    }
+    
+    function restoreItem(key){
+        localStorage.removeItem(key);
     }
     
     function saveItem(key, data){
@@ -276,4 +307,5 @@ define(["exports"], function (exports) {
     exports.getScenariosByStatus = getScenariosByStatus;
     exports.getContactById       = getContactById;
     exports.StatusCategory       = Status.Categories;
+    exports.updateContact        = updateContact;  
 });
