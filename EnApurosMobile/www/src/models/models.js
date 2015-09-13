@@ -210,6 +210,11 @@ define(["exports"], function (exports) {
 
         return scenarios;
     }
+    
+    function getContactById(id) {
+        var result  = contacts.filter(function(c){return c._id== id;} );
+        return result? result[0] : null; 
+    }
 
     function _init() {        
         statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/icon-feliz.png"));

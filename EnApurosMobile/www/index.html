@@ -159,13 +159,30 @@
         </div>
     </div>
 </div>
-    
-<!-- Edit contacts page -->
-<div data-role="page" id="update-contacts-page">
+
+<!-- update contacts page -->
+<div data-role="page" id="update-contacts-page" data-theme="a">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
     <div role="main" class="ui-content">
-         <div id="contacts-list-to-update" class="app-list"></div>
-        <a href="#splash-page" data-role="button" data-inline="true" data-theme="b" data-icon="check" class="settings" id="btn-update-contacts">Guardar</a> 
+        <div id="contacts-to-update-list" class="app-list"></div>
+    </div>
+</div>
+    
+<!-- Edit contact page -->
+<div data-role="page" id="update-contact-page">
+    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
+
+    <div role="main" class="ui-content absolute-center">
+        <label for="basic" >Nombre</label>
+        <input type="text" name="name" id="contact-name" data-mini="true">
+        <label for="basic" >e-mail</label>
+        <input type="text" name="email" id="contact-email" data-mini="true">
+        <label for="basic" >Teléfono</label>
+        <input type="text" name="phone" id="contact-phone" data-mini="true">
+        <label for="basic" >Imágen</label>
+        <input type="text" name="img" id="contact-img" data-mini="true">
+        <a href="#update-contacts-page" data-role="button" data-inline="true" data-theme="b" data-icon="check" class="settings" id="btn-update-contact">Guardar</a> 
     </div>
 </div>
 

@@ -21,6 +21,12 @@ define(function () {
         this._$settingsMainPage = null;
         this._$updateContactsPage = null;
         
+        this._$updateContactPage = null;
+        this._$contactName = null;
+        this._$contactEmail = null;
+        this._$contactPhone = null;
+        this._$contactImg = null;
+        
         this._$btnGoToHome = null;
         this._$btnGear = null;
         this._$btnUnlock = null;
@@ -32,7 +38,7 @@ define(function () {
         this._$btnGoToUpdateScenarios = null;
         this._$btnGoToUpdatePassword = null;
         
-        this._$btnUpdateContacts = null;
+        this._$btnUpdateContact = null;
         
         this._$statusList = null;
         this._$locationsList = null;
@@ -54,6 +60,7 @@ define(function () {
         this._$notificationsPage = $("#notification-page");
         this._$settingsMainPage = $("#settings-main-page");
         this._$updateContactsPage = $("#update-contacts-page");
+        this._$updateContactPage = $("#update-contact-page");
 
         this._$btnGoToHome = this._$splashPage.find("#btn-init");
         this._$btnGear = this._$splashPage.find("#btn-settings");
@@ -68,22 +75,27 @@ define(function () {
         this._$btnGoToUpdateScenarios = this._$settingsMainPage.find("#go-to-edit-scenarios");
         this._$btnGoToUpdatePassword = this._$settingsMainPage.find("#go-to-edit-contrasena");
         
-        this._$btnUpdateContacts = this._$updateContactsPage.find("#btn-update-contacts");
+        this._$btnUpdateContact = this._$updateContactsPage.find("#btn-update-contacts");
 
-        
         this._$statusList = this._$statusPage.find("#status-list");
         this._$locationsList = this._$locationsPage.find("#locations-list");
         this._$scenariosList = this._$scenariosPage.find("#scenarios-list");
         this._$contactsList = this._$contactsPage.find("#contacts-list");
 
-        this._$contactsToUpdateList = this._$updateContactsPage.find("#contacts-list-to-update");
-
+        this._$contactsToUpdateList = this._$updateContactsPage.find("#contacts-to-update-list");
+        
+        this._$contactName = this._$updateContactPage.find("#contact-name");
+        this._$contactEmail = this._$updateContactPage.find("#contact-email");
+        this._$contactPhone = this._$updateContactPage.find("#contact-phone");
+        this._$contactImg = this._$updateContactPage.find("#contact-img");
+        this._$btnUpdateContact.on("tap", this._onUpdateContact.bind(this));
+        
         this._$btnGoToHome.on("tap", this._onNavigateToHome.bind(this));
         this._$btnGear.on("tap", this._onNavigateToUnlockSettings.bind(this));
         this._$btnUnlock.on("tap", this._onSettingsPasswordProvided.bind(this));
         this._$btnUpdatePwd.on("tap", this._onSettingsPasswordUpdated.bind(this));
         this._$btnNewPwd.on("tap", this._onSettingsPasswordCreated.bind(this));
-        this._$btnUpdateContacts.on("tap", this._onUpdateContacts.bind(this));
+        
         
         this._$btnGoToUpdateContacts.on("tap", this._onGoToUpdateContacts.bind(this));
         this._$btnGoToUpdateLocations.on("tap", this._onGoToUpdateLocations.bind(this));
@@ -94,6 +106,7 @@ define(function () {
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
         this._$scenariosList.on("tap", "[data-scenario]", this._onScenarioSelected.bind(this));
         this._$contactsList.on("tap", "[data-contact]", this._onContactSelected.bind(this));
+        this._$contactsToUpdateList.on("tap", "[data-contact]", this._onContactToUpdateSelected.bind(this));
 
         this._$notificationsPage.on("tap", "[data-notification-action]", this._onNotificationSelected.bind(this));
         
@@ -157,7 +170,12 @@ define(function () {
     
     MainView.prototype.showUpdateContacts = function (contacts) {
         $.mobile.changePage(this._$updateContactsPage);
-        this._renderUpdateList(contacts, "contact", this._$contactsToUpdateList);
+        this._renderOptions(contacts, "contact", this._$contactsToUpdateList);
+    };
+    
+    MainView.prototype.showUpdateContact = function (contact) {
+        $.mobile.changePage(this._$updateContactPage);
+        
     };
     
     MainView.prototype.showUpdateLocations = function (locations) {
@@ -309,7 +327,19 @@ define(function () {
 
         this._controller.contactSelected(key);
     };
+    
+    /**
+     * @private
+     */
+    MainView.prototype._onContactToUpdateSelected = function (event) {
+        var $target = $(event.currentTarget),
+            key = $target.data("contact");
+        this._controller.contactToUpdateSelected(key);
+    };
 
+    /**
+     * @private
+     */
     MainView.prototype._onNotificationSelected = function (event) {
         var $target = $(event.currentTarget),
             key = $target.data("notification-action");
@@ -317,26 +347,41 @@ define(function () {
         this._controller.notificationSelected(key);
     };
     
+    /**
+     * @private
+     */
     MainView.prototype._onGoToUpdateContacts = function () {
         this._controller.goToUpdateContactsSelected();
     };
     
+    /**
+     * @private
+     */
     MainView.prototype._onGoToUpdateLocations = function () {
         this._controller.goToUpdateLocationsSelected();
     };
     
+    /**
+     * @private
+     */
     MainView.prototype._onGoToUpdateScenarios = function () {
         this._controller.goToUpdateLocationsSelected();
     };
     
+    /**
+     * @private
+     */
     MainView.prototype._onGoToUpdatePassword = function () {
         this.showUpdatePassword();
     };
     
-    MainView.prototype._onUpdateContacts = function (event) {
+    /**
+     * @private
+     */
+    MainView.prototype._onUpdateContact = function (event) {
         var $target = $(event.currentTarget),
             key = $target.data("contact");
-        this._controller.updateContactsSelected();
+        this._controller.updateContactSelected();
     };
     
     return MainView;
