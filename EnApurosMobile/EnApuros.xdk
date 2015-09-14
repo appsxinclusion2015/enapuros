@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://appcenter.html5tools-software.intel.com/api/v2.0/redirect/projectrenderers/release-2015-ww32/jsapp/templates-blank-cordova-project/sample.zip",
       "projectGuid": "25aa0c2b-6e5f-4e29-9057-cb626284d474",
-      "lastModifiedDate": 1442113359630,
+      "lastModifiedDate": 1442238076127,
       "creationDate": 1440278848783
     },
     "XDK-app-designer": "false",

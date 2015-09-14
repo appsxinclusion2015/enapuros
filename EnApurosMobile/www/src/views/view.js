@@ -31,19 +31,15 @@ define(function () {
         this._$contactPhone = null;
        
         this._$contactImg = null;
-        this._$btnChangeContactImg = null;
         
         this._$locationId = null;
         this._$locationName = null;
         this._$locationImg = null;
-        this._$btnChangeLocationImg = null;
         
         this._$scenarioId = null;
         this._$scenarioName = null;
         this._$scenarioStatusType = null;
         this._$scenarioImg = null;
-        this._$btnChangeScenarioImg = null;
-        
         
         this._$btnGoToHome = null;
         this._$btnGear = null;
@@ -123,20 +119,18 @@ define(function () {
         this._$contactPhone = this._$updateContactPage.find("#contact-phone");
         
         this._$contactImg = this._$updateContactPage.find("#contact-img");
-        this._$btnChangeContactImg = this._$updateContactPage.find("#change-contact-img");
+        this._$contactImg.on("tap", this._onChangeContactImage.bind(this));
         this._$btnUpdateContact.on("tap", this._onUpdateContact.bind(this));
         
         this._$locationId = this._$updateLocationPage.find("#location-id");
         this._$locationName = this._$updateLocationPage.find("#location-name");
         this._$locationImg = this._$updateLocationPage.find("#location-img");
-        this._$btnChangeLocationImg = this._$updateLocationPage.find("#change-location-img");
         this._$btnUpdateLocation.on("tap", this._onUpdateLocation.bind(this));
         
         this._$scenarioId = this._$updateScenarioPage.find("#scenario-id");
         this._$scenarioName = this._$updateScenarioPage.find("#scenario-name");
         this._$scenarioImg = this._$updateScenarioPage.find("#scenario-img");
         this._$scenarioStatusType = this._$updateScenarioPage.find("#scenario-status-type");
-        this._$btnChangeScenarioImg = this._$updateScenarioPage.find("#change-scenario-img");
         this._$btnUpdateScenario.on("tap", this._onUpdateScenario.bind(this));
         
         
@@ -152,9 +146,8 @@ define(function () {
         this._$btnGoToUpdateScenarios.on("tap", this._onGoToUpdateScenarios.bind(this));
         this._$btnGoToUpdatePassword.on("tap", this._onGoToUpdatePassword.bind(this));
         
-        this._$btnChangeContactImg.on("tap", this._onChangeContactImage.bind(this));
-        this._$btnChangeLocationImg.on("tap", this._onChangeLocationImage.bind(this));
-        this._$btnChangeScenarioImg.on("tap", this._onChangeScenarioImage.bind(this));
+        this._$locationImg.on("tap", this._onChangeLocationImage.bind(this));
+        this._$scenarioImg.on("tap", this._onChangeScenarioImage.bind(this));
         
         this._$statusList.on("tap", "[data-status]", this._onStatusSelected.bind(this));
         this._$locationsList.on("tap", "[data-location]", this._onLocationSelected.bind(this));
