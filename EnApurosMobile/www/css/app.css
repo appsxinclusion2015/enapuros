@@ -159,7 +159,7 @@ input, textarea  {
 .absolute-center-for-contact {
     /* Must manually set width/height */
     width:250px;
-    height:600px;
+    height:700px;
 
     /* The magic centering code */
     margin:auto;
