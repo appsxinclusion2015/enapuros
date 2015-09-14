@@ -12,15 +12,22 @@ define(["exports"], function (exports) {
     /**
      * @constructor
      */
-    function Contact(id, name, phone, email, image) {
+    function Contact(id, name, phone, email, image, contactMethods) {
         this._id = id;
         this._name = name;
         this._phone = phone;
         this._email = email;
         this._image = image;
+        this._contactMethods = contactMethods;
         
     }
-
+    
+    Contact.ContactMethods = {
+        PHONE: "phone",
+        EMAIL: "email",
+        SMS: "sms"
+    };
+    
     Object.defineProperties(Contact.prototype, {
         "id": {
             get: function () {
@@ -46,7 +53,13 @@ define(["exports"], function (exports) {
             get: function () {
                 return this._email;
             }
+        },
+        "contact-methods": {
+            get: function () {
+                return this.contactMethods;
+            }
         }
+        
     });
 
     /**
@@ -163,7 +176,7 @@ define(["exports"], function (exports) {
         }
     });
     
-    function updateContact(contactId, name, phone, email, img){
+    function updateContact(contactId, name, phone, email, img, contactMethods){
         var contactsFromStorage = getStoredItem('contacts');
         var id = parseInt(contactId);
         for (var i = 0; i < contactsFromStorage.length; i++) {
@@ -172,6 +185,7 @@ define(["exports"], function (exports) {
                 contactsFromStorage[i].phone = phone;
                 contactsFromStorage[i].email = email;
                 contactsFromStorage[i].img = img;
+                contactsFromStorage[i]._contactMethods = contactMethods;
                 break;  
             }
         }
@@ -318,7 +332,7 @@ define(["exports"], function (exports) {
         var contactsFromStorage = getStoredItem('contacts');
         for (var i = 0; i < contactsFromStorage.length; i++) {
             var contact = contactsFromStorage[i];
-            contacts.push(new Contact(contact.id, contact.name, contact.phone, contact.email, contact.img));
+            contacts.push(new Contact(contact.id, contact.name, contact.phone, contact.email, contact.img, contact.contactMethods));
         }
     }
     
@@ -339,7 +353,7 @@ define(["exports"], function (exports) {
         }
     
         if(getStoredItem('contacts') === null){
-            var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"assets/icon-mama.png"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
+            var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"assets/icon-mama.png", "contactMethods": [Contact.ContactMethods.PHONE, Contact.ContactMethods.EMAIL, Contact.ContactMethods.SMS]},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png", "contactMethods": [Contact.ContactMethods.PHONE, Contact.ContactMethods.EMAIL]}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png", "contactMethods": [Contact.ContactMethods.EMAIL, Contact.ContactMethods.SMS]}];
             saveItem('contacts', contactsToStore);
         }
         

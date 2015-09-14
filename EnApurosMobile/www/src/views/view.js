@@ -28,6 +28,8 @@ define(function () {
         this._$contactId = null;
         this._$contactEmail = null;
         this._$contactPhone = null;
+        this._$contactPhone = null;
+       
         this._$contactImg = null;
         this._$btnChangeContactImg = null;
         
@@ -119,6 +121,7 @@ define(function () {
         this._$contactName = this._$updateContactPage.find("#contact-name");
         this._$contactEmail = this._$updateContactPage.find("#contact-email");
         this._$contactPhone = this._$updateContactPage.find("#contact-phone");
+        
         this._$contactImg = this._$updateContactPage.find("#contact-img");
         this._$btnChangeContactImg = this._$updateContactPage.find("#change-contact-img");
         this._$btnUpdateContact.on("tap", this._onUpdateContact.bind(this));
