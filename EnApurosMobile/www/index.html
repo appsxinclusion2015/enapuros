@@ -181,6 +181,18 @@
         <input type="text" name="email" id="contact-email" data-mini="true">
         <label for="basic" >Teléfono</label>
         <input type="text" name="phone" id="contact-phone" data-mini="true">
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+               <legend>Forma de contacto preferente:</legend>
+               <input type="checkbox" name="checkbox-contact" id="contact-email" class="custom" />
+               <label for="contact-email">e-mail</label>
+               <input type="checkbox" name="checkbox-contact" id="contact-phone" class="custom" />
+               <label for="contact-phone">Telefono</label>
+               <input type="checkbox" name="checkbox-contact" id="contact-sms" class="custom" />
+               <label for="contact-sms">SMS</label>
+            </fieldset>
+        </div>
+        
         <div style="height: 250px">
             <img id="contact-img" draggable='false' style="width: 100%;max-height: 100%" ></img>
         </div>
