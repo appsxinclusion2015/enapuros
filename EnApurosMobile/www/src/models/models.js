@@ -294,21 +294,7 @@ define(["exports"], function (exports) {
 
     function _init() {    
         
-        //TODO: Move this to an installation time only
-        statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/icon-feliz.png"));
-        statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, "assets/icon-triste.png"));
-        
-        var locationsToStore = [{"id":"casa","name":"Casa", "img":"assets/icon-casa.png"}, {"id":"escuela","name":"Escuela", "img":"assets/icon-escuela.png"}, {"id":"calle","name":"Calle", "img":"assets/icon-calle.png"}, {"id":"parque","name":"Parque", "img":"assets/icon-parque.png"}];
-    
-        var scenariosToStore = [{"id":1,"name":"Me lastimé", "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-lastimado.png"}, {"id":2,"name":"Estoy encerrado", "status_type":Status.Categories.NEGATIVE, "img":"assets/icon-encerrado.png"}, {"id":3,"name":"Me perdí",  "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-perdido.png"}];
-    
-        var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"assets/icon-mama.png"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
-        
-        saveItem('locations', locationsToStore);
-        saveItem('scenarios', scenariosToStore);
-        saveItem('contacts', contactsToStore);
-        
-        //END TODO
+        loadInitialData();
         retrieveLocations();
         retrieveScenarios();
         retrieveContacts();
@@ -334,6 +320,29 @@ define(["exports"], function (exports) {
             var contact = contactsFromStorage[i];
             contacts.push(new Contact(contact.id, contact.name, contact.phone, contact.email, contact.img));
         }
+    }
+    
+    function loadInitialData(){
+        //TODO: Move this to an installation time only
+        statusList.push(new Status("feliz", "Feliz", Status.Categories.POSITIVE, "assets/icon-feliz.png"));
+        statusList.push(new Status("triste", "Triste", Status.Categories.NEGATIVE, "assets/icon-triste.png"));
+        
+        if(getStoredItem('locations') === null){
+            var locationsToStore = [{"id":"casa","name":"Casa", "img":"assets/icon-casa.png"}, {"id":"escuela","name":"Escuela", "img":"assets/icon-escuela.png"}, {"id":"calle","name":"Calle", "img":"assets/icon-calle.png"}, {"id":"parque","name":"Parque", "img":"assets/icon-parque.png"}];   
+            saveItem('locations', locationsToStore);
+        }
+        
+        if(getStoredItem('scenarios') === null){
+            var scenariosToStore = [{"id":1,"name":"Me lastimé", "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-lastimado.png"}, {"id":2,"name":"Estoy encerrado", "status_type":Status.Categories.NEGATIVE, "img":"assets/icon-encerrado.png"}, {"id":3,"name":"Me perdí",  "status_type": Status.Categories.NEGATIVE, "img":"assets/icon-perdido.png"}];
+            saveItem('scenarios', scenariosToStore);
+
+        }
+    
+        if(getStoredItem('contacts') === null){
+            var contactsToStore = [{"id":1,"name":"Mamá", "phone":123, "email":"mama@mama.com", "img":"assets/icon-mama.png"},{"id":2,"name":"Papá", "phone":123, "email":"papa@papa.com", "img":"assets/icon-papa.png"}, {"id":3,"name":"Maestra", "phone":123, "email":"maestra@mama.com", "img":"assets/icon-maestro.png"}];
+            saveItem('contacts', contactsToStore);
+        }
+        
     }
     
     function getStoredItem(key){
@@ -362,6 +371,6 @@ define(["exports"], function (exports) {
     exports.getScenarioById      = getScenarioById;
     exports.StatusCategory       = Status.Categories;
     exports.updateContact        = updateContact;  
-    exports.updateScenario       = updateScenario
+    exports.updateScenario       = updateScenario;
     exports.updateLocation       = updateLocation;  
 });
