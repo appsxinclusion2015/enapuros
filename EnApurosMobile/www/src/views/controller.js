@@ -137,8 +137,11 @@ define([
                 // TODO navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 break;
             case "sms":
-                var text = "[EnApuros] Mamá: estoy en el colegio, me lastimé.\n";
-
+                //var text = "[EnApuros] Mamá: estoy en el colegio, me lastimé.\n";
+                
+                var text = "[EnApuros]: " + this._models.getContactById(this._selection.contact)._name + " estoy en " + this._models.getLocationById(this._selection.location)._name + " " + this._models.getScenarioById(this._selection.scenario)._name + "\n";
+                console.log(text);
+                    
                 function sendSms(message) {
                     var options = {
                         replaceLineBreaks: false,
