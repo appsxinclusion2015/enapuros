@@ -50,7 +50,7 @@ La primera vez que se accede a esta pantalla, por seguridad, la aplicacion solic
 Esta contraseña, también puede ser modificada, desde la pantalla principal de configuraciones.
 
 ## Limitaciones
-* Esta versión incial de la aplicación no posee aún ciertos estándares de calidad, como por ejemplo: validaciones de tipos de datos (formato de números telefónicos, emails, requerimientos mínimos de formatos de contraseña, entre otro).
+* Esta versión incial de la aplicación no posee aún ciertos estándares de calidad, como por ejemplo: validaciones de tipos de datos (formato de números telefónicos, emails, requerimientos mínimos de formatos de contraseña, entre otros).
 * La única forma de comunicación soportada actualmente es mensaje de texto.
 * El video de relajación aún no se puede personalizar.
 * La pantalla de selección del método de comunicación es provisional. La idea es que por defecto cada contacto elegido ya tenga configurado el método de comunicación deseado.
