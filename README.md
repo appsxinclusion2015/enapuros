@@ -15,7 +15,7 @@ Tiene como objetivo principal mejorar la comunicación, la expresión, el pedido
 
 ## Funcionalidad
 Al ingresar a la aplicacion, `EnApuros` presenta la siguiente pantalla de inicio: 
-![main](/screenshots/001.png)
+<img src="EnApurosMobile/screenshots/001.png" width="400" height="700" />
 
 Al hacer click en comenzar, el paciente sera direccionado a traves de una serie de pantallas que le permitiran explicar la situacion que esta atravesando. Podra elegir entre una serie de estados, lugares, situaciones y finalmente podra elegir a quien contactar para comunicarle lo sucedido. Cada eleccion se lleva a cabo a traves de un simple click entre ventanas, de acuerdo con la siguiente secuencia:
 ![main](/screenshots/001.png)
