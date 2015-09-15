@@ -16,7 +16,6 @@ define([
     }
 
     Controller.prototype.initialize = function () {
-        console.log("initialize");
         this._view.initialize();
     };
 
@@ -42,22 +41,19 @@ define([
     };
     
     Controller.prototype.verifySettingsPassword = function (password) {
-        console.log("password", password);
         var currentPwd = localStorage.getItem("password");
-        if(currentPwd == password){
+        if (currentPwd === password) {
             this._view.showMainSettings();
-        }
-        else{
-            alert("Invalid Pwd");
+        } else {
+            alert("La contraseña ingresada es incorrecta");
         }
     };
     
     Controller.prototype.updatePassword = function (currentPassword, newPassword, confirmedNewPassword) {
         var currentStoredPwd = localStorage.getItem("password");
-        if(currentStoredPwd == currentPassword){
+        if (currentStoredPwd === currentPassword) {
             this.passwordsMatch(newPassword, confirmedNewPassword);
-        }
-        else{
+        } else {
             alert("La contraseña actual es incorrecta");
         }
     };
@@ -66,9 +62,8 @@ define([
         this.passwordsMatch(newPassword, confirmedNewPassword);
     };
     
-    
     Controller.prototype.passwordsMatch = function(newPwd, confirmedNewPwd){
-        if(newPwd!== "" && newPwd === confirmedNewPwd){
+        if (newPwd !== "" && newPwd === confirmedNewPwd) {
             localStorage.setItem("password", newPwd);
             this._view.showUnlockSettings();
         }
@@ -78,16 +73,12 @@ define([
     };
 
     Controller.prototype.statusSelected = function (statusId) {
-        console.log("statusSelected", statusId);
-
         this._selection.status = statusId;
 
         this._view.showLocation(this._models.getLocations());
     };
 
     Controller.prototype.locationSelected = function (locationId) {
-        console.log("locationSelected", locationId);
-
         this._selection.location = locationId;
 
         var status = this._models.getStatusById(this._selection.status),
@@ -98,16 +89,12 @@ define([
     };
 
     Controller.prototype.scenarioSelected = function (scenarioId) {
-        console.log("scenarioSelected", scenarioId);
-
         this._selection.scenario = scenarioId;
 
         this._view.showContacts(this._models.getContacts());
     };
 
     Controller.prototype.contactSelected = function (contactId) {
-        console.log("contactSelected", contactId);
-
         this._selection.contact = contactId;
 
         this._view.showNotifications();
@@ -140,7 +127,6 @@ define([
                 //var text = "[EnApuros] Mamá: estoy en el colegio, me lastimé.\n";
                 
                 var text = "[EnApuros]: " + this._models.getContactById(this._selection.contact)._name + " estoy en " + this._models.getLocationById(this._selection.location)._name + " " + this._models.getScenarioById(this._selection.scenario)._name + "\n";
-                console.log(text);
                     
                 function sendSms(message) {
                     var options = {

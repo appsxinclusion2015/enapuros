@@ -1,5 +1,5 @@
 /*jslint browser:true, devel:true, white:true, vars:true */
-/*global $:false, intel:false, app:false, dev:false, requirejs, define */
+/*global $:false, intel:false, app:false, dev:false, requirejs, define, Camera */
 /*cordova:false, device:false */
 
 define(function () {
@@ -503,9 +503,9 @@ define(function () {
      */
     MainView.prototype._onChangeLocationImage = function () {
        //move to controller
-        navigator.camera.getPicture(this._onLocationObtainedSuccess, this._onPictureObtainedFail,
-            { destinationType: Camera.DestinationType.FILE_URI,
-                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+        navigator.camera.getPicture(this._onLocationObtainedSuccess, this._onPictureObtainedFail, {
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });
     };
     
@@ -522,9 +522,9 @@ define(function () {
      */
     MainView.prototype._onChangeScenarioImage = function () {
         //move to controller
-        navigator.camera.getPicture(this._onScenarioObtainedSuccess, this._onPictureObtainedFail,
-            { destinationType: Camera.DestinationType.FILE_URI,
-                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+        navigator.camera.getPicture(this._onScenarioObtainedSuccess, this._onPictureObtainedFail, { 
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });
     };
     
@@ -541,9 +541,9 @@ define(function () {
      */
     MainView.prototype._onChangeContactImage = function (entity) { 
         //move to controller
-        navigator.camera.getPicture(this._onContactObtainedSuccess, this._onPictureObtainedFail,
-            { destinationType: Camera.DestinationType.FILE_URI,
-                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+        navigator.camera.getPicture(this._onContactObtainedSuccess, this._onPictureObtainedFail, {
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });
     };
     
@@ -553,7 +553,7 @@ define(function () {
     };
     
     MainView.prototype._onPictureObtainedFail = function (msg){
-        alert("No pudimos obtener la imagen, por favor intente nuevamente");
+        alert("Oops! Se ha producido un error al obtener la imagen, por favor intente nuevamente");
     };
     
     return MainView;
