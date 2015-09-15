@@ -116,6 +116,8 @@ define([
     };
 
     Controller.prototype.notificationSelected = function (action) {
+        var contact = this._models.getContactById(this._selection.contact);
+
         switch (action) {
             case "email":
                 // TODO complete
@@ -123,12 +125,12 @@ define([
             case "location":
                 // TODO navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 break;
-            case "sms":
-                //var text = "[EnApuros] Mamá: estoy en el colegio, me lastimé.\n";
-                
-                var text = "[EnApuros]: " + this._models.getContactById(this._selection.contact)._name + " estoy en " + this._models.getLocationById(this._selection.location)._name + " " + this._models.getScenarioById(this._selection.scenario)._name + "\n";
+            case "sms":                
+                var text = "[EnApuros]: " + contact.name + 
+                            " estoy en " + this._models.getLocationById(this._selection.location).name + " " + 
+                            this._models.getScenarioById(this._selection.scenario).name + "\n";
                     
-                function sendSms(message) {
+                function sendSms(number, message) {
                     var options = {
                         replaceLineBreaks: false,
                         android: {
@@ -137,22 +139,20 @@ define([
                     };
 
                     // TODO add phone number for demo
-                    sms.send("+123", message, options, function () {
+                    sms.send(number, message, options, function () {
                         console.log('Message sent successfully');
                     }, function (error) {
                         console.log('Message failed', error);
                     });
                 }
 
-                sendSms(text);
+                sendSms(contact.phone, text);
 
                 break;
             case "call":
-                var number = "+123"; // TODO add phone number for demo
-
                 navigator.callphone.call(function () {}, function (error) {
                     console.log(error.call);
-                }, number);
+                }, contact.phone);
 
                 break;
         }
