@@ -54,6 +54,6 @@ Esta contraseña también podrá ser modificada desde la pantalla principal de c
 * La única forma de comunicación soportada actualmente es mediante mensaje de texto.
 * El video de relajación aún no se puede personalizar.
 * La pantalla de selección del método de comunicación es provisoria. La idea es que, por defecto, cada contacto elegido ya  tenga configurado el método de comunicación deseado.
-* Algunos métodos de navegacion deseables no están presentes (por ejemplo: ir al inicio de la aplicacion, salir, etc).
+* Algunos métodos de navegación deseables no están presentes (por ejemplo: ir al inicio de la aplicacion, salir, etc). 
 
-
+## Nota: Esta versión inicial funciona en dispositivos móviles con sistema operativo Android, versión 4.0 en adelante.  
