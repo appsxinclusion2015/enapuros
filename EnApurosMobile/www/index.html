@@ -21,19 +21,20 @@
 <div data-role="page" id="splash-page">
 
     <div role="main" class="ui-content">
-        <img id="btn-init" src="assets/btn_comenzar.png" class="go-to-home"/>
+        <div class="center-wrapper">
+            <button id="btn-init" class="app-button">Comenzar</button>
+        </div>
         <img id="btn-settings" src="assets/icono-config.png" class="settings"/>
-        
     </div>
 </div>
 
 <!-- locked settings page -->
 <div data-role="page" id="unlock-settings-page">
         <div data-role="header" data-add-back-btn="true" class="app-header"></div>
-    <div role="main" class="ui-content absolute-center">
+    <div role="main" class="ui-content">
         <label for="basic" >Contraseña</label>
         <input type="password" name="name" id="password" value="" data-mini="true">
-        <img id="btn-unlock" src="assets/btn_comenzar.png"/>        
+        <button id="btn-unlock" class="app-button">Ingresar</button>        
     </div>
 </div>
 
@@ -41,14 +42,14 @@
 <div data-role="page" id="update-settings-pwd-page">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content absolute-center">
+    <div role="main" class="ui-content">
         <label for="basic" id="current-pwd-label">Contraseña actual</label>
         <input type="password" name="name" id="current-password" value="" data-mini="true">
         <label for="basic" >Nueva contraseña</label>
         <input type="password" name="name" id="new-password" value="" data-mini="true">
         <label for="basic" >Confirme nueva contraseña</label>
         <input type="password" name="name" id="confirmed-new-password" value="" data-mini="true">
-        <img id="btn-update-pwd" src="assets/btn_comenzar.png"/>        
+        <button id="btn-update-pwd" class="app-button">Actualizar</button>        
     </div>
 </div>
     
@@ -56,12 +57,12 @@
 <div data-role="page" id="new-settings-pwd-page">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content absolute-center">
+    <div role="main" class="ui-content">
         <label for="basic" >Nueva contraseña</label>
         <input type="password" name="name" id="new-password" value="" data-mini="true">
         <label for="basic" >Confirme nueva contraseña</label>
         <input type="password" name="name" id="confirmed-new-password" value="" data-mini="true">
-        <img id="btn-new-pwd" src="assets/btn_comenzar.png"/>        
+        <button id="btn-new-pwd" class="app-button">Aceptar</button>        
     </div>
 </div>
     
@@ -69,7 +70,7 @@
 <div data-role="page" id="settings-main-page">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content absolute-center">
+    <div role="main" class="ui-content app-page">
         <button id="go-to-edit-contacts" class="ui-btn ui-shadow ui-corner-all">Editar contactos</button>
         <button id="go-to-edit-locations" class="ui-btn ui-shadow ui-corner-all">Editar lugares</button>
         <button id="go-to-edit-scenarios" class="ui-btn ui-shadow ui-corner-all">Editar escenarios</button>
@@ -80,7 +81,7 @@
 <!-- main status page -->
 <div data-role="page" id="status-page">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content app-page">
         <div class="app-title">
             <h2>Cómo Estás?</h2>
         </div>
@@ -93,7 +94,7 @@
 <div data-role="page" id="location-page" data-theme="a">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content app-page">
         <div class="app-title">
             <h2>Dónde estás?</h2>
         </div>
@@ -106,7 +107,7 @@
 <div data-role="page" id="scenarios-page" data-theme="a">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content app-page">
         <div class="app-title">
             <h2>Qué es lo que sucede?</h2>
         </div>
@@ -119,7 +120,7 @@
 <div data-role="page" id="contacts-page" data-theme="a">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content app-page">
         <div class="app-title">
             <h2>A quién contactamos?</h2>
         </div>
@@ -132,7 +133,7 @@
 <div data-role="page" id="notification-page" data-theme="a">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content app-page">
         <div class="app-title">
             <h2>Comunicarse Utilizando:</h2>
         </div>
@@ -147,9 +148,9 @@
 
 <!-- "Relax" page -->
 <div data-role="page" id="relax" data-theme="a">
-    <div data-role="header" data-add-back-btn="true" class="app-header"></div>
+    <div data-role="header" data-add-back-btn="true" class="app-header" data-position="fixed"></div>
 
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content app-page">
         <div class="app-title">
             <h2>Mirá el video</h2>
         </div>
@@ -225,20 +226,22 @@
 <div data-role="page" id="update-scenario-page">
     <div data-role="header" data-add-back-btn="true" class="app-header"></div>
 
-    <div role="main" class="ui-content absolute-center-for-contact">
-        <input type="hidden" value="" id="scenario-id" />
-        <label for="basic" >Nombre</label>
-        <input type="text" name="name" id="scenario-name" data-mini="true">
-        <label for="basic" >Tipo de escenario</label>
-        <select name="select-native-2" id="scenario-status-type" data-mini="true" id="scenario-status-type">
-            <option value="positive">Positivo</option>
-            <option value="negative">Negativo</option>
-            <option value="neutral">Neutral</option>
-        </select>
-        <div style="height: 150px">
-            <img id="scenario-img" draggable='false' style="width: 100%;max-height: 100%" ></img>
+    <div role="main" class="ui-content">
+        <div class="absolute-center-for-contact">
+            <input type="hidden" value="" id="scenario-id" />
+            <label for="basic">Nombre</label>
+            <input type="text" name="name" id="scenario-name" data-mini="true">
+            <label for="basic">Tipo de escenario</label>
+            <select name="select-native-2" id="scenario-status-type" data-mini="true" id="scenario-status-type">
+                <option value="positive">Positivo</option>
+                <option value="negative">Negativo</option>
+                <option value="neutral">Neutral</option>
+            </select>
+            <div style="height: 150px">
+                <img id="scenario-img" draggable='false' style="width: 100%;max-height: 100%" ></img>
+            </div>
+            <a href="##update-scenarios-page" class="ui-btn ui-shadow ui-corner-all" id="btn-update-scenario">Guardar Cambios</a>
         </div>
-        <a href="##update-scenarios-page" class="ui-btn ui-shadow ui-corner-all" id="btn-update-scenario">Guardar Cambios</a>
     </div>
 </div>
 

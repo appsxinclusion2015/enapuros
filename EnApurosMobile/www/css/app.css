@@ -56,7 +56,7 @@ input, textarea  {
 .app-title {
     text-align: center;
     text-transform: uppercase;
-    padding: 5px 10px 10px 10px;
+    padding: 0 10px 10px 10px;
 }
 
 .app-list {
@@ -176,15 +176,6 @@ input, textarea  {
     vertical-align: middle;
 }
 
-.go-to-home {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
 .settings {
     position: absolute;
     margin: auto;
@@ -192,3 +183,36 @@ input, textarea  {
     bottom: 20px;
 }
 
+.app-button {
+    background-color: #f79700 !important;
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 20px;
+    border: 5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px !important;
+}
+
+.app-button:active,
+.app-button:hover {
+    background-color: #ffa800;
+}
+
+.center-wrapper {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 36%;
+}
+
+.app-page {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.ui-page {
+    height: 100% !important;
+}
+
+.ui-content {
+    min-height: calc(100% - 36px) !important;
+    padding-top: 50px;
+}
